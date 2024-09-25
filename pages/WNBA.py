@@ -1556,7 +1556,7 @@ if selected_season:
                                 'away': away_color
                             }
                             # draw court lines
-                            court = CourtCoordinates()
+                            court = CourtCoordinates2(selected_season)
                             court_lines_df = court.get_court_lines()
                         
                             game_coords_df = pd.DataFrame()
