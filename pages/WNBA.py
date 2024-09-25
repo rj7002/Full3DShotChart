@@ -1563,7 +1563,7 @@ if selected_season:
                     
                             for index, row in game2.iterrows():
                         
-                                shot = BasketballShot(
+                                shot = BasketballShot2(
                                     shot_start_x=row['coordinate.x'], 
                                     shot_start_y=row['coordinate.y'], 
                                     shot_id=row['sequenceNumber'],
@@ -1572,9 +1572,9 @@ if selected_season:
                                     team=row['team'],
                                     quarter=row['period.displayValue'],
                                     time=row['clock.displayValue'],
-                                    realquarter=row['period.number'],
-                                    typeshotchart=shotcharttype,
-                                    misspath=True,makepath=True)
+                                realquarter=row['period.number'],
+                                typeshotchart=shotcharttype,
+                                misspath=misspath,makepath=makepath)
                                     
                                     # quarter=row['period.displayValue'])
                                 shot_df = shot.get_shot_path_coordinates()
