@@ -567,7 +567,7 @@ if selected_season:
             shot = BasketballShot2(
                 shot_start_x=row['coordinate.x'], 
                 shot_start_y=row['coordinate.y'], 
-                shot_id=row['GAME_EVENT_ID'],
+                shot_id=row['sequenceNumber'],
                 play_description=row['text'],
                 shot_made=row['scoringPlay'],
                 team=row['team'],
