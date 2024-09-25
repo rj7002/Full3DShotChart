@@ -260,11 +260,11 @@ def display_team_image2(teamname, width2):
 
 
 
-st.set_page_config(page_title="3D NBA/WNBA Shot Visualizer", page_icon='https://i.imgur.com/3oGJTcf.png',layout="wide")
-st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D NBA/WNBA Shot Visualizer</h3>', unsafe_allow_html=True)
+st.set_page_config(page_title="3D WNBA Shot Visualizer", page_icon='https://i.imgur.com/M9admoz.png?1',layout="wide")
+st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D WNBA Shot Visualizer</h3>', unsafe_allow_html=True)
 
-st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D NBA/WNBA Shot Visualizer</span></div>', unsafe_allow_html=True)
-st.sidebar.image("https://i.imgur.com/3oGJTcf.png")
+st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D WNBA Shot Visualizer</span></div>', unsafe_allow_html=True)
+st.sidebar.image("https://i.imgur.com/M9admoz.png?1")
 
 input_csv = 'nba_play_by_play.csv'  # Replace with your actual CSV file path
 output_csv = 'nba_play_by_play.csv'  # Replace with desired output file path
@@ -1997,7 +1997,7 @@ if selected_season:
             else:
                 st.write("")
 else:
-    image_url = 'https://i.imgur.com/3oGJTcf.png'
+    image_url = 'https://i.imgur.com/M9admoz.png?1'
 
     st.markdown(f'<img src="{image_url}" style="width:100%; height:auto;">', unsafe_allow_html=True)
 
