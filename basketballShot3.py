@@ -34,7 +34,7 @@ class BasketballShot:
         '''
         if self.typeshotchart == 'Natural':
             if self.team == 'home':
-                if self.realquarter <= 2:
+                if self.realquarter == 1:
                     self.shot_start_y = 94 - self.shot_start_y - self.hoop_baseline_offset
                     self.hoop_loc_y = 94 - self.hoop_baseline_offset
                 else:
@@ -42,7 +42,7 @@ class BasketballShot:
                     self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
                     self.hoop_loc_y = self.hoop_baseline_offset
             if self.team == 'away':
-                if self.realquarter <= 2:
+                if self.realquarter == 1:
                     self.shot_start_x = 50 - self.shot_start_x
                     self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
                     self.hoop_loc_y = self.hoop_baseline_offset
