@@ -424,6 +424,8 @@ if type == 'MBB':
                     game_coords_df = pd.concat([game_coords_df, shot_df])
             
                 # draw shot paths
+                misspath = st.sidebar.checkbox('Miss Shot Path',value=False)
+                makepath = st.sidebar.checkbox('Make Shot Path',value=True)
                 color_map={'away':away_color,'home':home_color2}
             
                 shot_path_fig = px.line_3d(
