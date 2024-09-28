@@ -423,7 +423,8 @@ if type == 'MBB':
                         quarter=row['period.displayValue'],
                         time=row['clock.displayValue'],
                     misspath=misspath,makepath=makepath,
-                    typeshotchart=shotcharttype)
+                    typeshotchart=shotcharttype,
+                     realquarter=row['period.number'])
                         # quarter=row['period.displayValue'])
                     shot_df = shot.get_shot_path_coordinates()
                     game_coords_df = pd.concat([game_coords_df, shot_df])
