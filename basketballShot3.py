@@ -160,10 +160,26 @@ class BasketballShot:
         self.__adjust_shot_calculate_perspective()
 
         # if shot is in the hoop cylinder, or the shot was missed, just return a dataframe with one row, the shot start coordinate.
-        if not self.shot_path_possible or not self.shot_made: 
-            shot_coordinates = [0, shot_start_x, shot_start_y, shot_start_z]
-            self.shot_path_coordinates_df = pd.DataFrame([shot_coordinates], columns=['shot_coord_index', 'x', 'y', 'z'])
-            return 
+        if self.misspath == True:
+            if not self.shot_path_possible: 
+                shot_coordinates = [0, shot_start_x, shot_start_y, shot_start_z]
+                self.shot_path_coordinates_df = pd.DataFrame([shot_coordinates], columns=['shot_coord_index', 'x', 'y', 'z'])
+                return
+        else:
+            if not self.shot_path_possible or not self.shot_made: 
+                shot_coordinates = [0, shot_start_x, shot_start_y, shot_start_z]
+                self.shot_path_coordinates_df = pd.DataFrame([shot_coordinates], columns=['shot_coord_index', 'x', 'y', 'z'])
+                return  
+        if self.makepath == True:
+            if not self.shot_path_possible: 
+                shot_coordinates = [0, shot_start_x, shot_start_y, shot_start_z]
+                self.shot_path_coordinates_df = pd.DataFrame([shot_coordinates], columns=['shot_coord_index', 'x', 'y', 'z'])
+                return
+        else:
+            if not self.shot_path_possible or self.shot_made: 
+                shot_coordinates = [0, shot_start_x, shot_start_y, shot_start_z]
+                self.shot_path_coordinates_df = pd.DataFrame([shot_coordinates], columns=['shot_coord_index', 'x', 'y', 'z'])
+                return  
 
         shot_vertex_z = self.shot_vertex_z
 
@@ -195,7 +211,6 @@ class BasketballShot:
                 shot_path_coords.append([index, shot_start_x + (x_shift_per_coord * index), y, z])
 
         self.shot_path_coordinates_df = pd.DataFrame(shot_path_coords, columns=['shot_coord_index', 'x', 'y', 'z'])
-
     def get_shot_path_coordinates(self) -> pd.DataFrame:
         '''
         Returns a dataframe of the estimated shot trajectory
