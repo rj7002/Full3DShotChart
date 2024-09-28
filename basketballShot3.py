@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 class BasketballShot:
-    def __init__(self, shot_start_x, shot_start_y, shot_id, play_description, shot_made, team,quarter,time):
+    def __init__(self, shot_start_x, shot_start_y, shot_id, play_description, shot_made, team,quarter,time,misspath,makepath):
         self.hoop_loc_x = 25
         self.hoop_loc_y = None
         self.hoop_loc_z = 10
@@ -21,6 +21,8 @@ class BasketballShot:
         self.play_description = play_description
         self.quarter = quarter
         self.time = time
+        self.misspath = misspath
+        self.makepath = makepath
 
     def __adjust_shot_and_hoop_coordinates(self):
         print(self.team)
