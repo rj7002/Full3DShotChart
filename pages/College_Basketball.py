@@ -418,7 +418,8 @@ if type == 'MBB':
                         shot_made=row['scoringPlay'],
                         team=row['team'],
                         quarter=row['period.displayValue'],
-                        time=row['clock.displayValue'])
+                        time=row['clock.displayValue'],
+                    misspath=misspath,makepath=makepath)
                         # quarter=row['period.displayValue'])
                     shot_df = shot.get_shot_path_coordinates()
                     game_coords_df = pd.concat([game_coords_df, shot_df])
