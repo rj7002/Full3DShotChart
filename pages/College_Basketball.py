@@ -422,7 +422,8 @@ if type == 'MBB':
                         team=row['team'],
                         quarter=row['period.displayValue'],
                         time=row['clock.displayValue'],
-                    misspath=misspath,makepath=makepath)
+                    misspath=misspath,makepath=makepath,
+                    typeshotchart=shotcharttype)
                         # quarter=row['period.displayValue'])
                     shot_df = shot.get_shot_path_coordinates()
                     game_coords_df = pd.concat([game_coords_df, shot_df])
