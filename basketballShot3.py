@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 class BasketballShot:
-    def __init__(self, shot_start_x, shot_start_y, shot_id, play_description, shot_made, team,quarter,time,misspath,makepath):
+    def __init__(self, shot_start_x, shot_start_y, shot_id, play_description, shot_made, team,quarter,time,misspath,makepath,typeshotchart):
         self.hoop_loc_x = 25
         self.hoop_loc_y = None
         self.hoop_loc_z = 10
@@ -23,6 +23,7 @@ class BasketballShot:
         self.time = time
         self.misspath = misspath
         self.makepath = makepath
+        self.typeshotchart = typeshotchart
 
     def __adjust_shot_and_hoop_coordinates(self):
         print(self.team)
@@ -30,13 +31,31 @@ class BasketballShot:
         Adjust shot coordinates to align with court view and whether the shot was from the home/away team
         The home team will shoot against the right half-court and the away team will shoot against the left half-court
         '''
-        if self.team == 'home':
-            self.shot_start_y = 94 - self.shot_start_y - self.hoop_baseline_offset
-            self.hoop_loc_y = 94 - self.hoop_baseline_offset
-        if self.team == 'away':
-            self.shot_start_x = 50 - self.shot_start_x
-            self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
-            self.hoop_loc_y = self.hoop_baseline_offset
+        if self.typeshotchart == 'Natural':
+            if self.team == 'home':
+                if self.realquarter <= 2:
+                    self.shot_start_y = 94 - self.shot_start_y - self.hoop_baseline_offset
+                    self.hoop_loc_y = 94 - self.hoop_baseline_offset
+                else:
+                    self.shot_start_x = 50 - self.shot_start_x
+                    self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
+                    self.hoop_loc_y = self.hoop_baseline_offset
+            if self.team == 'away':
+                if self.realquarter <= 2:
+                    self.shot_start_x = 50 - self.shot_start_x
+                    self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
+                    self.hoop_loc_y = self.hoop_baseline_offset
+                else:
+                    self.shot_start_y = 94 - self.shot_start_y - self.hoop_baseline_offset
+                    self.hoop_loc_y = 94 - self.hoop_baseline_offset
+        else:
+            if self.team == 'home':
+                self.shot_start_y = 94 - self.shot_start_y - self.hoop_baseline_offset
+                self.hoop_loc_y = 94 - self.hoop_baseline_offset
+            elif self.team == 'away':
+                self.shot_start_x = 50 - self.shot_start_x
+                self.shot_start_y = self.shot_start_y + self.hoop_baseline_offset
+                self.hoop_loc_y = self.hoop_baseline_offset
 
     def __calculate_shot_possible(self):
         '''
