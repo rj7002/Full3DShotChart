@@ -614,14 +614,17 @@ if type == 'MBB':
                     for index, row in game_shots_df.iterrows():
                         # Assuming BasketballShot class or function to generate shot coordinates
                         shot = BasketballShot(
-                            shot_start_x=row['coordinate.x'], 
-                            shot_start_y=row['coordinate.y'], 
-                            shot_id=row['sequenceNumber'],
-                            play_description=row['text'],
-                            shot_made=row['scoringPlay'],
-                            team=row['team'],
-                            quarter=row['period.displayValue'],
-                            time=row['clock.displayValue'])
+                        shot_start_x=row['coordinate.x'], 
+                        shot_start_y=row['coordinate.y'], 
+                        shot_id=row['sequenceNumber'],
+                        play_description=row['text'],
+                        shot_made=row['scoringPlay'],
+                        team=row['team'],
+                        quarter=row['period.displayValue'],
+                        time=row['clock.displayValue'],
+                    misspath=misspath,makepath=makepath,
+                    typeshotchart=shotcharttype,
+                     realquarter=row['period.number'])
                         
                         shot_df = shot.get_shot_path_coordinates()
                         game_coords_df = pd.concat([game_coords_df, shot_df])
@@ -1167,7 +1170,10 @@ else:
                         shot_made=row['scoringPlay'],
                         team=row['team'],
                         quarter=row['period.displayValue'],
-                        time=row['clock.displayValue'])
+                        time=row['clock.displayValue'],
+                    misspath=misspath,makepath=makepath,
+                    typeshotchart=shotcharttype,
+                     realquarter=row['period.number'])
                         # quarter=row['period.displayValue'])
                     shot_df = shot.get_shot_path_coordinates()
                     game_coords_df = pd.concat([game_coords_df, shot_df])
@@ -1355,14 +1361,17 @@ else:
                     for index, row in game_shots_df.iterrows():
                         # Assuming BasketballShot class or function to generate shot coordinates
                         shot = BasketballShot(
-                            shot_start_x=row['coordinate.x'], 
-                            shot_start_y=row['coordinate.y'], 
-                            shot_id=row['sequenceNumber'],
-                            play_description=row['text'],
-                            shot_made=row['scoringPlay'],
-                            team=row['team'],
-                            quarter=row['period.displayValue'],
-                            time=row['clock.displayValue'])
+                        shot_start_x=row['coordinate.x'], 
+                        shot_start_y=row['coordinate.y'], 
+                        shot_id=row['sequenceNumber'],
+                        play_description=row['text'],
+                        shot_made=row['scoringPlay'],
+                        team=row['team'],
+                        quarter=row['period.displayValue'],
+                        time=row['clock.displayValue'],
+                    misspath=misspath,makepath=makepath,
+                    typeshotchart=shotcharttype,
+                     realquarter=row['period.number'])
                         
                         shot_df = shot.get_shot_path_coordinates()
                         game_coords_df = pd.concat([game_coords_df, shot_df])
