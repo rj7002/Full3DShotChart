@@ -1153,6 +1153,9 @@ else:
                 hometotal = 0
                 awaycount = 0
                 awaytotal = 0
+                misspath = st.sidebar.checkbox('Miss Shot Path',value=False)
+                makepath = st.sidebar.checkbox('Make Shot Path',value=True)
+                shotcharttype = st.sidebar.select_slider('',['Grouped','Natural'])
                 for index, row in game_shots_df.iterrows():
                     if row['team.id'] == team_id:
                         hometotal+=1
