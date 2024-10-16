@@ -591,7 +591,8 @@ if selected_season:
         # Create opacity list based on the condition
         game_coords_df['opacity'] = game_coords_df['key'].apply(get_opacity)
 
-        color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color2,'home_missed':home_color2}
+        # color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color2,'home_missed':home_color2}
+        color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color,'home_missed':home_color}
     
         shot_path_fig = px.line_3d(
             data_frame=game_coords_df,
@@ -618,6 +619,7 @@ if selected_season:
         # shot start scatter plots
         game_coords_start = game_coords_df[game_coords_df['shot_coord_index'] == 0]
         symbol_map={'made': 'circle-open', 'missed': 'cross'}
+        color_map2={'away_made':away_color2,'home_made':home_color2,'away_missed':away_color2,'home_missed':home_color2}
         shot_start_fig = px.scatter_3d(
             data_frame=game_coords_start,
             x='x',
@@ -625,7 +627,7 @@ if selected_season:
             z='z',
             custom_data=['description', 'z','quarter','time'],
             color='key',
-            color_discrete_map=color_map,
+            color_discrete_map=color_map2,
             # color_discrete_map=color_mapping,
             
             symbol='shot_made',
@@ -641,7 +643,7 @@ if selected_season:
             z='z',
             custom_data=['description', 'z','quarter','time'],
             color='key',
-            color_discrete_map=color_map,
+            color_discrete_map=color_map2,
             # color_discrete_map=color_mapping,
             
             symbol='shot_made',
@@ -1244,7 +1246,8 @@ if selected_season:
 
     
                 # Draw shot paths
-                color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color2,'home_missed':home_color2}
+                # color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color2,'home_missed':home_color2}
+                color_map={'away_made':away_color,'home_made':home_color,'away_missed':away_color,'home_missed':home_color}
 
                 shot_path_fig = px.line_3d(
                     data_frame=game_coords_df,
@@ -1267,6 +1270,7 @@ if selected_season:
                 # Draw shot start scatter plots
                 game_coords_start = game_coords_df[game_coords_df['shot_coord_index'] == 0]
                 symbol_map = {'made': 'circle-open', 'missed': 'cross'}
+                color_map2={'away_made':away_color2,'home_made':home_color2,'away_missed':away_color2,'home_missed':home_color2}
                 shot_start_fig = px.scatter_3d(
                     data_frame=game_coords_start,
                     x='x',
@@ -1274,7 +1278,7 @@ if selected_season:
                     z='z',
                     custom_data=['description', 'z', 'quarter', 'time'],
                     color='key',
-                    color_discrete_map=color_map,
+                    color_discrete_map=color_map2,
                     symbol='shot_made',
                     symbol_map=symbol_map,
                 )
@@ -1287,7 +1291,7 @@ if selected_season:
                     z='z',
                     custom_data=['description', 'z','quarter','time'],
                     color='key',
-                    color_discrete_map=color_map,
+                    color_discrete_map=color_map2,
                     # color_discrete_map=color_mapping,
                     
                     symbol='shot_made',
