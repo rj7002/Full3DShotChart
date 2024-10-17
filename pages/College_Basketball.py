@@ -118,7 +118,12 @@ output_csv = 'nba_play_by_play.csv'  # Replace with desired output file path
 type = st.selectbox('MBB or WBB',['MBB','WBB'])
 if type == 'MBB':
     # Determine the current year
-    current_year = date.today().year
+    year = datetime.now().year
+    month = datetime.now().month
+    current_year = year
+    
+    if month >= 11 or month <= 4:  # College basketball season runs from November to April
+        current_year = current_year + 1
 
     # Create a selectbox in Streamlit with options from 2002 to the current year
     selected_season = st.selectbox('Select a season', [''] + list(range(2014, current_year + 1)), index=0)
@@ -866,7 +871,12 @@ if type == 'MBB':
         st.markdown(f'<img src="{image_url}" style="width:100%; height:auto;">', unsafe_allow_html=True)
 else:
         # Determine the current year
-    current_year = date.today().year
+    year = datetime.now().year
+    month = datetime.now().month
+    current_year = year
+    
+    if month >= 11 or month <= 4:  # College basketball season runs from November to April
+        current_year = current_year + 1
 
     # Create a selectbox in Streamlit with options from 2002 to the current year
     selected_season = st.selectbox('Select a season', [''] + list(range(2014, current_year + 1)), index=0)
