@@ -270,7 +270,13 @@ input_csv = 'nba_play_by_play.csv'  # Replace with your actual CSV file path
 output_csv = 'nba_play_by_play.csv'  # Replace with desired output file path
 
 # Determine the current year
-current_year = date.today().year
+year = datetime.now().year
+month = datetime.now().month
+current_year = year
+if month >= 10 and month <=12:  # NBA season starts in October
+    current_year=current_year+1
+else:
+     current_year=current_year
 
 # Create a selectbox in Streamlit with options from 2002 to the current year
 selected_season = st.selectbox('Select a season', [''] + list(range(2002, current_year + 1)), index=0, help='Video highlights available from 2015 onward')
