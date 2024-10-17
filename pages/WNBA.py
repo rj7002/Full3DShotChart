@@ -273,10 +273,9 @@ output_csv = 'nba_play_by_play.csv'  # Replace with desired output file path
 year = datetime.now().year
 month = datetime.now().month
 current_year = year
-if month >= 10 and month <=12:  # NBA season starts in October
-    current_year=current_year+1
-else:
-     current_year=current_year
+
+if month >= 5 and month <= 9:  # WNBA season runs from May to September
+    current_year = current_year + 1
 # Create a selectbox in Streamlit with options from 2002 to the current year
 selected_season = st.selectbox('Select a season', [''] + list(range(2002, current_year + 1)), index=0,help='Video highlights available from 2015 onward')
 if selected_season:
