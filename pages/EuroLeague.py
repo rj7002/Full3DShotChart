@@ -517,6 +517,31 @@ if games:
     teams = df['TEAM'].unique()
     team1 = teams[0]
     team2 = teams[1]
+    df2 = pd.read_csv('teams_data.csv')
+    df3 = pd.read_csv('teams_data.csv')
+
+    from fuzzywuzzy import fuzz
+    from fuzzywuzzy import process
+    
+    teamoptions = df2['name'].unique()
+    
+    hteams = process.extractOne(team1, teamoptions)
+    hname = hteams[0]
+    hscore = hteams[1]
+    ateams = process.extractOne(team2, teamoptions)
+    aname = ateams[0]
+    ascore = ateams[1]
+    # if score > 80:
+    #     print(name)
+    #     print(score)
+    # else:
+    #     print('Not found')
+    df2 = df[df['name'] == hname]
+    df3 = df[df['name'] == aname]
+    homelogo = df2['logo'].iloc[0]
+    awaylogo = df3['logo'].iloc[0]
+    
+    # print(df['logo'])
     df['TEAMTYPE'] = np.where(df['TEAM'] == team1, 'Home', 'Away')
     df['SHOT_DISTANCE'] = np.sqrt((df['COORD_X'] - 0)**2 + (df['COORD_Y'] - 52)**2)
     df['SHOT_DISTANCE'] = df['SHOT_DISTANCE']/30.48
@@ -761,6 +786,11 @@ if games:
             hovertemplate=hovertemplate
     
         ))
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image(homelogo)
+    with col2:
+        st.image(awaylogo)
     st.subheader(gamename + ' - ' + date)
     st.plotly_chart(fig,use_container_width=True)
 
