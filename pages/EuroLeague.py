@@ -482,8 +482,8 @@ if games:
     Shotdist = st.sidebar.toggle('Shot Distance')
     if Shotdist == 1:
         shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
-    makes = st.sidebar.checkbox('Make Shotpath')
-    misses = st.sidebar.checkbox('Miss Shotpath')
+    makes = st.sidebar.checkbox('Make Shotpath',value=True)
+    misses = st.sidebar.checkbox('Miss Shotpath',value=False)
     
     parts = games.split(' - ')
         
