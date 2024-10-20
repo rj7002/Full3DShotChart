@@ -79,7 +79,10 @@ class CourtCoordinates:
         self.three_point_line_coordinates = line_coordinates
     
     def addextraline(self):
-        three_point_radius = 675  # radius in cm
+        if self.year < 2010:
+            three_point_radius = 625  # radius in cm
+        else:
+            three_point_radius = 675  # radius in cm
         line_coordinates = []
         line_coordinates.append([-three_point_radius+15, 275, 0])
         line_coordinates.append([-three_point_radius+15, 0, 0])
@@ -187,7 +190,10 @@ class CourtCoordinates:
         self.three_point_line_coordinates = line_coordinates
     
     def addextraline2(self):
-        three_point_radius = 675  # radius in cm
+        if self.year < 2010:
+            three_point_radius = 625  # radius in cm
+        else:
+            three_point_radius = 675  # radius in cm
         line_coordinates = []
         line_coordinates.append([-three_point_radius+15, 2833-275, 0])
         line_coordinates.append([-three_point_radius+15, 2833-0, 0])
