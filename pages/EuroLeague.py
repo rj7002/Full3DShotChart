@@ -401,10 +401,10 @@ class CourtCoordinates:
 
 
 
-st.set_page_config(page_title="3D Euroleague Shot Visualizer", page_icon='https://i.imgur.com/3oGJTcf.png',layout="wide")
-st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D Euroleague Shot Visualizer</h3>', unsafe_allow_html=True)
+st.set_page_config(page_title="3D EuroLeague Shot Visualizer", page_icon='https://i.imgur.com/3oGJTcf.png',layout="wide")
+st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D EuroLeague Shot Visualizer</h3>', unsafe_allow_html=True)
 
-st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D Euroleague Shot Visualizer</span></div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D EuroLeague Shot Visualizer</span></div>', unsafe_allow_html=True)
 st.sidebar.image("https://i.imgur.com/3oGJTcf.png")
 year = datetime.now().year
 month = datetime.now().month
@@ -416,8 +416,8 @@ else:
     current_year = current_year
 
 season = st.selectbox('Select a season',range(2007,current_year))
-comptype = st.selectbox('Select a competition',['Euroleague','Eurocup'])
-if comptype == 'Euroleague':
+comptype = st.selectbox('Select a competition',['EuroLeague','EuroCup'])
+if comptype == 'EuroLeague':
     code = 'E'
 else:
     code = 'U'
