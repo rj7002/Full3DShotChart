@@ -426,6 +426,7 @@ parts = games.split('-')
     
 # Extract the last element (which contains the number) and strip any extra whitespace
 id = parts[-1].strip()
+gamename = parts[0]
 
 # df = shotdata.get_game_shot_data(season, game_code)
 # df.to_csv('euroleague.csv')
@@ -631,6 +632,7 @@ for i in range(len(df)):
         hovertemplate=hovertemplate
 
     ))
+st.subheader(gamename)
 st.plotly_chart(fig)
 # import pandas as pd
 
