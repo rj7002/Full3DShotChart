@@ -412,6 +412,7 @@ shotdata = ShotData(competition_code)
 leaguedata = EuroLeagueData(competition_code)
 leaguedf = leaguedata.get_game_metadata_season(season)
 st.write(leaguedf)
+games = []
 for index, row in leaguedf.iterrows():
 # Concatenate home team and away team names for the current row
     ddate2 = row['date']
