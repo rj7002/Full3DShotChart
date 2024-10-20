@@ -788,9 +788,9 @@ if games:
         ))
     col1, col2 = st.columns(2)
     with col1:
-        st.image(awaylogo,width=300)
+        st.image(awaylogo,width=250)
     with col2:
-        st.image(homelogo,width=300)
+        st.image(homelogo,width=250)
     st.subheader(gamename + ' - ' + date)
     st.plotly_chart(fig,use_container_width=True)
 
