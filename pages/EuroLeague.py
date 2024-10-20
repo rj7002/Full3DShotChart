@@ -531,15 +531,18 @@ if games:
     ateams = process.extractOne(team2, teamoptions)
     aname = ateams[0]
     ascore = ateams[1]
-    # if score > 80:
-    #     print(name)
-    #     print(score)
-    # else:
-    #     print('Not found')
+
+    
     df2 = df2[df2['name'] == hname]
     df3 = df3[df3['name'] == aname]
-    homelogo = df2['logo'].iloc[0]
-    awaylogo = df3['logo'].iloc[0]
+    if hscore > 80:
+        homelogo = df2['logo'].iloc[0]
+    else:
+        homelogo = 'https://www.nepal90.com/images/original/icon_team.png'
+    if ascore > 80:
+        awaylogo = df3['logo'].iloc[0]
+    else:
+        awaylogo = 'https://www.nepal90.com/images/original/icon_team.png'
     
     # print(df['logo'])
     df['TEAMTYPE'] = np.where(df['TEAM'] == team1, 'Home', 'Away')
