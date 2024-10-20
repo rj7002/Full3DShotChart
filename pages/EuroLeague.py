@@ -659,10 +659,10 @@ if games:
         distance = calculate_distance(x1, y1, x2, y2)
         if df['TEAMTYPE'].iloc[i] == 'Home':
             color = 'blue'
-            color2 = 'purple'
+            color2 = '#6A0FAD'
         else:
             color = 'red'
-            color2 = 'orange'
+            color2 = '#FFA500'
         if df['SHOT_MADE_FLAG'].iloc[i] == 1:
             s = 'circle-open'
             s2 = 'circle'
