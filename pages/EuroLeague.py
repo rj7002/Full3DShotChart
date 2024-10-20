@@ -521,7 +521,10 @@ if games:
     df['SHOT_DISTANCE'] = np.sqrt((df['COORD_X'] - 0)**2 + (df['COORD_Y'] - 52)**2)
     df['SHOT_DISTANCE'] = df['SHOT_DISTANCE']/30.48
     df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
-    
+    def time_to_minutes(time_str):
+        minutes, seconds = map(int, time_str.split(':'))
+        return minutes + seconds / 60
+    df['TimeMinutes'] = df['CONSOLE'].apply(time_to_minutes)
     for index, row in df.iterrows():
         if 'Missed' in row['ACTION']:
             df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
@@ -540,7 +543,7 @@ if games:
     if Points:
         df = df[df['POINTS'] == int(points)]
     if Time:
-        df = df[(df['clock.minutes'] >= timemin) & (df['clock.minutes'] <= timemax)]
+        df = df[(df['TimeMinutes'] >= timemin) & (df['TimeMinutes'] <= timemax)]
     if Make:
         df = df[df['SHOT_MADE_FLAG'] == rmakemiss]
 
