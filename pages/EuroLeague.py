@@ -671,7 +671,7 @@ if games:
             s = 'cross'
             s2 = 'cross'
             size = 10
-            maketype = 'missed'
+            maketype = ''
             # color = 'red'
         playername = df['PLAYER'].iloc[i]
         formatted_name = ', '.join(reversed(playername.split(', '))).title()
