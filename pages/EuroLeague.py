@@ -445,9 +445,9 @@ if games:
     if Make == 1:
         makemiss = st.sidebar.selectbox('',['Make','Miss'])
         if makemiss == 'Make':
-            rmakemiss = True
+            rmakemiss = 1
         else:
-            rmakemiss = False
+            rmakemiss = 0
     # Quarter = st.sidebar.toggle('Quarter')
     # if Quarter == 1:
     #     quart = st.sidebar.multiselect('',unique_periods)
@@ -506,6 +506,23 @@ if games:
         if 'Missed' in row['ACTION']:
             df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
     df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
+
+    # if Quarter:
+    #     game_shots_df = game_shots_df[game_shots_df['period.displayValue'].isin(quart)]
+    if Shotdist:
+        df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (game_shots_df['SHOT_DISTANCE'] <= shotdistance_max)]
+    # if Player:
+    #     game_shots_df = filter_player_actions(game_shots_df, player_names)
+    #     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
+    # if Shottype:
+    #     game_shots_df = game_shots_df[game_shots_df['type.text'].isin(shottype)]
+    if Points:
+        game_shots_df = game_shots_df[game_shots_df['POINTS'] == int(points)]
+    if Time:
+        game_shots_df = game_shots_df[(game_shots_df['clock.minutes'] >= timemin) & (game_shots_df['clock.minutes'] <= timemax)]
+    if Make:
+        game_shots_df = game_shots_df[game_shots_df['SHOT_MADE_FLAG'] == rmakemiss]
+
     court = CourtCoordinates('2023-24')
     court_lines_df = court.get_coordinates()
     fig = px.line_3d(
