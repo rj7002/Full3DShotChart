@@ -409,9 +409,14 @@ st.sidebar.image("https://i.imgur.com/3oGJTcf.png")
 
 
 season = st.selectbox('Select a season',range(2007,2025))
+comptype = st.selectbox('Select a competition',['Euroleague','Eurocup'])
+if comptype == 'Euroleague':
+    code = 'E'
+else:
+    code = 'U'
 # season = 2022
 # game_code = 1
-competition_code = "E"
+competition_code = code
 
 shotdata = ShotData(competition_code)
 leaguedata = EuroLeagueData(competition_code)
