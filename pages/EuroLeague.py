@@ -439,231 +439,276 @@ for index, row in leaguedf.iterrows():
     # Append the concatenated string to the games list
     games.append(game)# Create a selectbox in Streamlit
 games = st.selectbox('Select game', [''] + games)
-parts = games.split('-')
-    
-# Extract the last element (which contains the number) and strip any extra whitespace
-id = parts[-1].strip()
-gamename = parts[0]
-date = parts[-2]
+if games:
 
-# df = shotdata.get_game_shot_data(season, game_code)
-# df.to_csv('euroleague.csv')
-df = shotdata.get_game_shot_data(season, id)
-teams = df['TEAM'].unique()
-team1 = teams[0]
-team2 = teams[1]
-df['TEAMTYPE'] = np.where(df['TEAM'] == team1, 'Home', 'Away')
-df['SHOT_DISTANCE'] = np.sqrt((df['COORD_X'] - 0)**2 + (df['COORD_Y'] - 52)**2)
-df['SHOT_DISTANCE'] = df['SHOT_DISTANCE']/30.48
-df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
-
-for index, row in df.iterrows():
-    if 'Missed' in row['ACTION']:
-        df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
-df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
-court = CourtCoordinates('2023-24')
-court_lines_df = court.get_coordinates()
-fig = px.line_3d(
-    data_frame=court_lines_df,
-    x='x',
-    y='y',
-    z='z',
-    line_group='line_group_id',
-    color='line_group_id',
-    color_discrete_map={
-        'court': 'black',
-        'hoop': '#e47041',
-        'net': '#D3D3D3',
-        'backboard': 'gray',
-        'free_throw_line': 'black',
-        'hoop2':'white',
-        'threepoint': 'black',
-        'threepoint2' : 'black',
-        'backboard2' : 'gray',
-        'hoop2.1' : '#e47041',
-        'hoop2.2' : 'white',
-        'free_throw_line2' : 'black',
-        'threepoint2.1' : 'black',
-        'threepoint2.2' : 'black',
-        'circlecourt' : 'black',
-        'hcourt' : 'black'
-    }
-)
-fig.update_traces(hovertemplate=None, hoverinfo='skip', showlegend=False)
-fig.update_traces(line=dict(width=6))
-fig.update_layout(    
-    margin=dict(l=20, r=20, t=20, b=20),
-    scene_aspectmode="data",
-    height=600,
-    scene_camera=dict(
-        eye=dict(x=1.3, y=0, z=0.7)
-    ),
-    scene=dict(
-        xaxis=dict(title='', showticklabels=False, showgrid=False),
-        yaxis=dict(title='', showticklabels=False, showgrid=False),
-        zaxis=dict(title='',  showticklabels=False, showgrid=False, showbackground=True, backgroundcolor='#d2a679'),
-    ),
-    showlegend=False,
-    legend=dict(
-        yanchor='top',
-        y=0.05,
-        x=0.2,
-        xanchor='left',
-        orientation='h',
-        font=dict(size=15, color='gray'),
-        bgcolor='rgba(0, 0, 0, 0)',
-        title='',
-        itemsizing='constant'
-    )
-)
-x_values = []
-y_values = []
-z_values = []
-
-for index, row in df.iterrows():
-    
-    if row['TEAMTYPE'] == 'Away':
-        x_values.append(-row['COORD_X'])
-        # Append the value from column 'x' to the list
-        y_values.append(2833-row['COORD_Y']-100)
-        z_values.append(0)
-    else:
-        x_values.append(row['COORD_X'])
-        # Append the value from column 'x' to the list
-        y_values.append(row['COORD_Y']+100)
-        z_values.append(0)
-
-
-
-x_values2 = []
-y_values2 = []
-z_values2 = []
-for index, row in df.iterrows():
-    # Append the value from column 'x' to the list
-    
-
-    x_values2.append(court.hoop_loc_x)
-    if row['TEAMTYPE'] == 'Away':
-        y_values2.append(2833-court.hoop_loc_y)
-    else:
-        y_values2.append(court.hoop_loc_y)
-    z_values2.append(100*2)
-
-import numpy as np
-import plotly.graph_objects as go
-import math
-def calculate_distance(x1, y1, x2, y2):
-    """Calculate the distance between two points (x1, y1) and (x2, y2)."""
-    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
-
-def generate_arc_points(p1, p2, apex, num_points=100):
-    """Generate points on a quadratic Bezier curve (arc) between p1 and p2 with an apex."""
-    t = np.linspace(0, 1, num_points)
-    x = (1 - t)**2 * p1[0] + 2 * (1 - t) * t * apex[0] + t**2 * p2[0]
-    y = (1 - t)**2 * p1[1] + 2 * (1 - t) * t * apex[1] + t**2 * p2[1]
-    z = (1 - t)**2 * p1[2] + 2 * (1 - t) * t * apex[2] + t**2 * p2[2]
-    return x, y, z
-
-# Example lists of x and y coordinates
-x_coords = x_values
-y_coords = y_values
-z_value = 0  # Fixed z value
-x_coords2 = x_values2
-y_coords2 = y_values2
-z_value2 = 305
-for i in range(len(df)):
-    x1 = x_coords[i]
-    y1 = y_coords[i]
-    x2 = x_coords2[i]
-    y2 = y_coords2[i]
-    # Define the start and end points
-    p2 = np.array([x1, y1, z_value])
-    p1 = np.array([x2, y2, z_value2])
-    
-    # Apex will be above the line connecting p1 and p2
-    distance = calculate_distance(x1, y1, x2, y2)
-    if df['TEAMTYPE'].iloc[i] == 'Home':
-        color = 'blue'
-    else:
-        color = 'red'
-    if df['SHOT_MADE_FLAG'].iloc[i] == 1:
-        s = 'circle-open'
-        s2 = 'circle'
-        size = 9
-        # color = 'green'
-    else:
-        s = 'cross'
-        s2 = 'cross'
-        size = 10
-        # color = 'red'
-    hovertemplate = f'{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]} - {df['PLAYER'].iloc[i]} - {df['TEAM'].iloc[i]} - {df['CONSOLE'].iloc[i]}'
-    # hovertemplate= f"Game: {df['HTM'].iloc[i]} vs {df['VTM'].iloc[i]}<br>Result: {df['EVENT_TYPE'].iloc[i]}<br>Shot Type: {df['ACTION_TYPE'].iloc[i]}<br>Distance: {df['SHOT_DISTANCE'].iloc[i]} ft {df['SHOT_TYPE'].iloc[i]}<br>Quarter: {df['PERIOD'].iloc[i]}<br>Time: {df['MINUTES_REMAINING'].iloc[i]}:{df['SECONDS_REMAINING'].iloc[i]}"
-
-    if df['SHOT_DISTANCE'].iloc[i] > 3:
-        if df['SHOT_DISTANCE'].iloc[i] > 50:
-            h = randint(250*3,300*3)
-        elif df['SHOT_DISTANCE'].iloc[i] > 30:
-            h = randint(225*3,275*3)
-        elif df['SHOT_DISTANCE'].iloc[i] > 25:
-            h = randint(200*3,250*3)
-        elif df['SHOT_DISTANCE'].iloc[i] > 15:
-            h = randint(175*3,200*3)
+    Make = st.sidebar.toggle('Make/Miss')
+    if Make == 1:
+        makemiss = st.sidebar.selectbox('',['Make','Miss'])
+        if makemiss == 'Make':
+            rmakemiss = True
         else:
-            h = randint(150*3,175*3)
+            rmakemiss = False
+    # Quarter = st.sidebar.toggle('Quarter')
+    # if Quarter == 1:
+    #     quart = st.sidebar.multiselect('',unique_periods)
+    # Player = st.sidebar.toggle('Players')
+    # if Player == 1:
+    #     import sportsdataverse.nba.nba_game_rosters as nba_rosters
+    #     roster_data = nba_rosters.espn_nba_game_rosters(game_id=id, return_as_pandas=True)
+    #     roster_data = roster_data[roster_data['did_not_play'] != True]
+    #     names = []
+    #     for index, row2 in roster_data.iterrows():
+    #         name = row2['full_name']
+    #         team = row2['team_display_name']
+    #         player = name + " - " + team
+    #         names.append(player)
+    #     # player_names = roster_data['full_name'].tolist()
+    #     players = st.sidebar.multiselect('',names)
+    #     player_names = []
+    #     for player_info in players:
+    #         # Split each player_info string by ' - ' to separate player name and team
+    #         player_name = player_info.split(' - ')[0]
+    #         player_names.append(player_name)
+
+    # Shottype = st.sidebar.toggle('Shot Type')
+    # if Shottype == 1:
+    #     shottype = st.sidebar.multiselect('',uniqueshots)
+    Points = st.sidebar.toggle('Points')
+    if Points == 1:
+        points = st.sidebar.selectbox('',['2','3'])
+    Time = st.sidebar.toggle('Time')
+    if Time == 1:
+        timemin, timemax = st.sidebar.slider("Time Remaining (Minutes)", 0, 15, (0, 15))
+    Shotdist = st.sidebar.toggle('Shot Distance')
+    if Shotdist == 1:
+        shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
     
+    
+    parts = games.split('-')
+        
+    # Extract the last element (which contains the number) and strip any extra whitespace
+    id = parts[-1].strip()
+    gamename = parts[0]
+    date = parts[-2]
+    
+    # df = shotdata.get_game_shot_data(season, game_code)
+    # df.to_csv('euroleague.csv')
+    df = shotdata.get_game_shot_data(season, id)
+    teams = df['TEAM'].unique()
+    team1 = teams[0]
+    team2 = teams[1]
+    df['TEAMTYPE'] = np.where(df['TEAM'] == team1, 'Home', 'Away')
+    df['SHOT_DISTANCE'] = np.sqrt((df['COORD_X'] - 0)**2 + (df['COORD_Y'] - 52)**2)
+    df['SHOT_DISTANCE'] = df['SHOT_DISTANCE']/30.48
+    df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
+    
+    for index, row in df.iterrows():
+        if 'Missed' in row['ACTION']:
+            df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
+    df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
+    court = CourtCoordinates('2023-24')
+    court_lines_df = court.get_coordinates()
+    fig = px.line_3d(
+        data_frame=court_lines_df,
+        x='x',
+        y='y',
+        z='z',
+        line_group='line_group_id',
+        color='line_group_id',
+        color_discrete_map={
+            'court': 'black',
+            'hoop': '#e47041',
+            'net': '#D3D3D3',
+            'backboard': 'gray',
+            'free_throw_line': 'black',
+            'hoop2':'white',
+            'threepoint': 'black',
+            'threepoint2' : 'black',
+            'backboard2' : 'gray',
+            'hoop2.1' : '#e47041',
+            'hoop2.2' : 'white',
+            'free_throw_line2' : 'black',
+            'threepoint2.1' : 'black',
+            'threepoint2.2' : 'black',
+            'circlecourt' : 'black',
+            'hcourt' : 'black'
+        }
+    )
+    fig.update_traces(hovertemplate=None, hoverinfo='skip', showlegend=False)
+    fig.update_traces(line=dict(width=6))
+    fig.update_layout(    
+        margin=dict(l=20, r=20, t=20, b=20),
+        scene_aspectmode="data",
+        height=600,
+        scene_camera=dict(
+            eye=dict(x=1.3, y=0, z=0.7)
+        ),
+        scene=dict(
+            xaxis=dict(title='', showticklabels=False, showgrid=False),
+            yaxis=dict(title='', showticklabels=False, showgrid=False),
+            zaxis=dict(title='',  showticklabels=False, showgrid=False, showbackground=True, backgroundcolor='#d2a679'),
+        ),
+        showlegend=False,
+        legend=dict(
+            yanchor='top',
+            y=0.05,
+            x=0.2,
+            xanchor='left',
+            orientation='h',
+            font=dict(size=15, color='gray'),
+            bgcolor='rgba(0, 0, 0, 0)',
+            title='',
+            itemsizing='constant'
+        )
+    )
+    x_values = []
+    y_values = []
+    z_values = []
+    
+    for index, row in df.iterrows():
+        
+        if row['TEAMTYPE'] == 'Away':
+            x_values.append(-row['COORD_X'])
+            # Append the value from column 'x' to the list
+            y_values.append(2833-row['COORD_Y']-100)
+            z_values.append(0)
+        else:
+            x_values.append(row['COORD_X'])
+            # Append the value from column 'x' to the list
+            y_values.append(row['COORD_Y']+100)
+            z_values.append(0)
+    
+    
+    
+    x_values2 = []
+    y_values2 = []
+    z_values2 = []
+    for index, row in df.iterrows():
+        # Append the value from column 'x' to the list
+        
+    
+        x_values2.append(court.hoop_loc_x)
+        if row['TEAMTYPE'] == 'Away':
+            y_values2.append(2833-court.hoop_loc_y)
+        else:
+            y_values2.append(court.hoop_loc_y)
+        z_values2.append(100*2)
+    
+    import numpy as np
+    import plotly.graph_objects as go
+    import math
+    def calculate_distance(x1, y1, x2, y2):
+        """Calculate the distance between two points (x1, y1) and (x2, y2)."""
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    
+    def generate_arc_points(p1, p2, apex, num_points=100):
+        """Generate points on a quadratic Bezier curve (arc) between p1 and p2 with an apex."""
+        t = np.linspace(0, 1, num_points)
+        x = (1 - t)**2 * p1[0] + 2 * (1 - t) * t * apex[0] + t**2 * p2[0]
+        y = (1 - t)**2 * p1[1] + 2 * (1 - t) * t * apex[1] + t**2 * p2[1]
+        z = (1 - t)**2 * p1[2] + 2 * (1 - t) * t * apex[2] + t**2 * p2[2]
+        return x, y, z
+    
+    # Example lists of x and y coordinates
+    x_coords = x_values
+    y_coords = y_values
+    z_value = 0  # Fixed z value
+    x_coords2 = x_values2
+    y_coords2 = y_values2
+    z_value2 = 305
+    for i in range(len(df)):
+        x1 = x_coords[i]
+        y1 = y_coords[i]
+        x2 = x_coords2[i]
+        y2 = y_coords2[i]
+        # Define the start and end points
+        p2 = np.array([x1, y1, z_value])
+        p1 = np.array([x2, y2, z_value2])
+        
+        # Apex will be above the line connecting p1 and p2
+        distance = calculate_distance(x1, y1, x2, y2)
+        if df['TEAMTYPE'].iloc[i] == 'Home':
+            color = 'blue'
+        else:
+            color = 'red'
         if df['SHOT_MADE_FLAG'].iloc[i] == 1:
-            # h = randint(200*3,250*3)
-
-            apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])  # Adjust apex height as needed
-            
-            # Generate arc points
-            x, y, z = generate_arc_points(p1, p2, apex)
-            fig.add_trace(go.Scatter3d(
-                        x=x, y=y, z=z,
-                        mode='lines',
-                        line=dict(width=8,color = color),
-                        opacity =0.5,
-                        name=f'Arc {i + 1}',
-                        hoverinfo='text',
-                        hovertemplate=hovertemplate
-                    ))
-# Add start and end points
-
-    fig.add_trace(go.Scatter3d(
-        x=[p2[0], p2[0]],
-        y=[p2[1], p2[1]],
-        z=[p2[2], p2[2]],
-        mode='markers',
-        marker=dict(size=size, symbol=s,color=color),
-        name=f'Endpoints {i + 1}',
-        hoverinfo='text',
-        hovertemplate=hovertemplate
-    ))
-    fig.add_trace(go.Scatter3d(
-        x=[p2[0], p2[0]],
-        y=[p2[1], p2[1]],
-        z=[p2[2], p2[2]],
-        mode='markers',
-        marker=dict(size=5, symbol=s2,color = color),
-        name=f'Endpoints {i + 1}',
-        hoverinfo='text',
-        hovertemplate=hovertemplate
-
-    ))
-st.subheader(gamename + ' - ' + date)
-st.plotly_chart(fig,use_container_width=True)
-# import pandas as pd
-
-# # Load the DataFrame
-# df = pd.read_csv('euroleague.csv')
-
-# # # Initialize the SHOT_MADE_FLAG column with default values
-# # df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
-
-# # # Iterate through the rows
-# # for index, row in df.iterrows():
-# #     if 'Missed' in row['ACTION']:
-# #         df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
-# df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
-# df.to_csv('euroleague.csv')
-
+            s = 'circle-open'
+            s2 = 'circle'
+            size = 9
+            # color = 'green'
+        else:
+            s = 'cross'
+            s2 = 'cross'
+            size = 10
+            # color = 'red'
+        hovertemplate = f'{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]} - {df['PLAYER'].iloc[i]} - {df['TEAM'].iloc[i]} - {df['CONSOLE'].iloc[i]}'
+        # hovertemplate= f"Game: {df['HTM'].iloc[i]} vs {df['VTM'].iloc[i]}<br>Result: {df['EVENT_TYPE'].iloc[i]}<br>Shot Type: {df['ACTION_TYPE'].iloc[i]}<br>Distance: {df['SHOT_DISTANCE'].iloc[i]} ft {df['SHOT_TYPE'].iloc[i]}<br>Quarter: {df['PERIOD'].iloc[i]}<br>Time: {df['MINUTES_REMAINING'].iloc[i]}:{df['SECONDS_REMAINING'].iloc[i]}"
+    
+        if df['SHOT_DISTANCE'].iloc[i] > 3:
+            if df['SHOT_DISTANCE'].iloc[i] > 50:
+                h = randint(250*3,300*3)
+            elif df['SHOT_DISTANCE'].iloc[i] > 30:
+                h = randint(225*3,275*3)
+            elif df['SHOT_DISTANCE'].iloc[i] > 25:
+                h = randint(200*3,250*3)
+            elif df['SHOT_DISTANCE'].iloc[i] > 15:
+                h = randint(175*3,200*3)
+            else:
+                h = randint(150*3,175*3)
+        
+            if df['SHOT_MADE_FLAG'].iloc[i] == 1:
+                # h = randint(200*3,250*3)
+    
+                apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])  # Adjust apex height as needed
+                
+                # Generate arc points
+                x, y, z = generate_arc_points(p1, p2, apex)
+                fig.add_trace(go.Scatter3d(
+                            x=x, y=y, z=z,
+                            mode='lines',
+                            line=dict(width=8,color = color),
+                            opacity =0.5,
+                            name=f'Arc {i + 1}',
+                            hoverinfo='text',
+                            hovertemplate=hovertemplate
+                        ))
+    # Add start and end points
+    
+        fig.add_trace(go.Scatter3d(
+            x=[p2[0], p2[0]],
+            y=[p2[1], p2[1]],
+            z=[p2[2], p2[2]],
+            mode='markers',
+            marker=dict(size=size, symbol=s,color=color),
+            name=f'Endpoints {i + 1}',
+            hoverinfo='text',
+            hovertemplate=hovertemplate
+        ))
+        fig.add_trace(go.Scatter3d(
+            x=[p2[0], p2[0]],
+            y=[p2[1], p2[1]],
+            z=[p2[2], p2[2]],
+            mode='markers',
+            marker=dict(size=5, symbol=s2,color = color),
+            name=f'Endpoints {i + 1}',
+            hoverinfo='text',
+            hovertemplate=hovertemplate
+    
+        ))
+    st.subheader(gamename + ' - ' + date)
+    st.plotly_chart(fig,use_container_width=True)
+    # import pandas as pd
+    
+    # # Load the DataFrame
+    # df = pd.read_csv('euroleague.csv')
+    
+    # # # Initialize the SHOT_MADE_FLAG column with default values
+    # # df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
+    
+    # # # Iterate through the rows
+    # # for index, row in df.iterrows():
+    # #     if 'Missed' in row['ACTION']:
+    # #         df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
+    # df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
+    # df.to_csv('euroleague.csv')
+    
