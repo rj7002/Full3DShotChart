@@ -535,11 +535,11 @@ if games:
     
     df2 = df2[df2['name'] == hname]
     df3 = df3[df3['name'] == aname]
-    if hscore > 80:
+    if hscore > 85:
         homelogo = df2['logo'].iloc[0]
     else:
         homelogo = 'https://www.nepal90.com/images/original/icon_team.png'
-    if ascore > 80:
+    if ascore > 85:
         awaylogo = df3['logo'].iloc[0]
     else:
         awaylogo = 'https://www.nepal90.com/images/original/icon_team.png'
