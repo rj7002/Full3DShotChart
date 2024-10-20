@@ -517,11 +517,11 @@ if games:
     # if Shottype:
     #     game_shots_df = game_shots_df[game_shots_df['type.text'].isin(shottype)]
     if Points:
-        game_shots_df = game_shots_df[game_shots_df['POINTS'] == int(points)]
+        df = df[df['POINTS'] == int(points)]
     if Time:
-        game_shots_df = game_shots_df[(game_shots_df['clock.minutes'] >= timemin) & (game_shots_df['clock.minutes'] <= timemax)]
+        df = df[(df['clock.minutes'] >= timemin) & (df['clock.minutes'] <= timemax)]
     if Make:
-        game_shots_df = game_shots_df[game_shots_df['SHOT_MADE_FLAG'] == rmakemiss]
+        df = df[df['SHOT_MADE_FLAG'] == rmakemiss]
 
     court = CourtCoordinates('2023-24')
     court_lines_df = court.get_coordinates()
