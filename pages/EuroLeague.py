@@ -56,7 +56,10 @@ class CourtCoordinates:
 
     def calculate_three_point_line_coordinates(self):
         # Three-point line radius for FIBA
-        three_point_radius = 675  # radius in cm
+        if self.year < 2010:
+            three_point_radius = 625  # radius in cm
+        else:
+            three_point_radius = 675  # radius in cm
 
         # line_coordinates = [[-three_point_radius, 0, 0], [-three_point_radius, 350, 0]]
         line_coordinates = []
@@ -161,7 +164,10 @@ class CourtCoordinates:
 
     def calculate_three_point_line_coordinates2(self):
         # Three-point line radius for FIBA
-        three_point_radius = 675  # radius in cm
+        if self.year < 2010:
+            three_point_radius = 625  # radius in cm
+        else:
+            three_point_radius = 675  # radius in cm
 
         # line_coordinates = [[-three_point_radius, 0, 0], [-three_point_radius, 350, 0]]
         line_coordinates = []
