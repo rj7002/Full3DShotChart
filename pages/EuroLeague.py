@@ -510,7 +510,7 @@ if games:
     # if Quarter:
     #     game_shots_df = game_shots_df[game_shots_df['period.displayValue'].isin(quart)]
     if Shotdist:
-        df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (game_shots_df['SHOT_DISTANCE'] <= shotdistance_max)]
+        df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (df['SHOT_DISTANCE'] <= shotdistance_max)]
     # if Player:
     #     game_shots_df = filter_player_actions(game_shots_df, player_names)
     #     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
