@@ -406,9 +406,16 @@ st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D 
 
 st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D Euroleague Shot Visualizer</span></div>', unsafe_allow_html=True)
 st.sidebar.image("https://i.imgur.com/3oGJTcf.png")
+year = datetime.now().year
+month = datetime.now().month
+current_year = year
 
+if month >= 10:  # EuroLeague season starts in October
+    current_year = current_year + 1
+else:
+    current_year = current_year
 
-season = st.selectbox('Select a season',range(2000,2025))
+season = st.selectbox('Select a season',range(2007,current_year))
 comptype = st.selectbox('Select a competition',['Euroleague','Eurocup'])
 if comptype == 'Euroleague':
     code = 'E'
