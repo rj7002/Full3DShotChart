@@ -403,15 +403,18 @@ class CourtCoordinates:
 
 
 
-
+season = st.selectbox('Select a season',range(2007,2025))
 # season = 2022
 # game_code = 1
-# competition_code = "E"
+competition_code = "E"
 
-# shotdata = ShotData(competition_code)
+shotdata = ShotData(competition_code)
+leaguedata = EuroLeagueData(competition_code)
+leaguedf = leaguedata.get_game_metadata_season(season)
+st.write(leaguedf)
+
 # df = shotdata.get_game_shot_data(season, game_code)
 # df.to_csv('euroleague.csv')
-seasons = st.selectbox('Select a season',range(2007,2025))
 df = pd.read_csv('euroleague.csv')
 teams = df['TEAM'].unique()
 team1 = teams[0]
