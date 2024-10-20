@@ -436,6 +436,12 @@ team2 = teams[1]
 df['TEAMTYPE'] = np.where(df['TEAM'] == team1, 'Home', 'Away')
 df['SHOT_DISTANCE'] = np.sqrt((df['COORD_X'] - 0)**2 + (df['COORD_Y'] - 52)**2)
 df['SHOT_DISTANCE'] = df['SHOT_DISTANCE']/30.48
+df['SHOT_MADE_FLAG'] = 1  # Assuming made shots by default
+
+for index, row in df.iterrows():
+    if 'Missed' in row['ACTION']:
+        df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
+df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
 court = CourtCoordinates('2023-24')
 court_lines_df = court.get_coordinates()
 fig = px.line_3d(
