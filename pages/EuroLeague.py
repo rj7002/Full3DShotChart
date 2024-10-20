@@ -636,7 +636,7 @@ if games:
     
     for index, row in df.iterrows():
         
-        if row['TEAMTYPE'] == 'Away':
+        if row['TEAMTYPE'] == 'Home':
             x_values.append(-row['COORD_X'])
             # Append the value from column 'x' to the list
             y_values.append(2833-row['COORD_Y']-100)
@@ -657,7 +657,7 @@ if games:
         
     
         x_values2.append(court.hoop_loc_x)
-        if row['TEAMTYPE'] == 'Away':
+        if row['TEAMTYPE'] == 'Home':
             y_values2.append(2833-court.hoop_loc_y)
         else:
             y_values2.append(court.hoop_loc_y)
