@@ -659,8 +659,10 @@ if games:
         distance = calculate_distance(x1, y1, x2, y2)
         if df['TEAMTYPE'].iloc[i] == 'Home':
             color = 'blue'
+            color2 = 'purple'
         else:
             color = 'red'
+            color2 = 'orange'
         if df['SHOT_MADE_FLAG'].iloc[i] == 1:
             s = 'circle-open'
             s2 = 'circle'
@@ -702,7 +704,7 @@ if games:
                     fig.add_trace(go.Scatter3d(
                                 x=x, y=y, z=z,
                                 mode='lines',
-                                line=dict(width=8,color = color),
+                                line=dict(width=8,color = color2),
                                 opacity =0.5,
                                 name=f'Arc {i + 1}',
                                 hoverinfo='text',
@@ -719,7 +721,7 @@ if games:
                     fig.add_trace(go.Scatter3d(
                                 x=x, y=y, z=z,
                                 mode='lines',
-                                line=dict(width=8,color = color),
+                                line=dict(width=8,color = color2),
                                 opacity =0.5,
                                 name=f'Arc {i + 1}',
                                 hoverinfo='text',
