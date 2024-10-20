@@ -513,7 +513,7 @@ if games:
     uniqueplayers = boxscoredf['Player'].unique()
     Player = st.sidebar.toggle('Players')
     if Player == 1:
-        selectplayers = st.multiselect('Select players',uniqueplayers)
+        selectplayers = st.sidebar.multiselect('Select players',uniqueplayers)
     teams = df['TEAM'].unique()
     team1 = teams[0]
     team2 = teams[1]
@@ -531,7 +531,8 @@ if games:
     #     game_shots_df = game_shots_df[game_shots_df['period.displayValue'].isin(quart)]
     if Shotdist:
         df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (df['SHOT_DISTANCE'] <= shotdistance_max)]
-    # if Player:
+    if Player:
+        df = df[df['PLAYER'].isin(selectplayers)]
     #     game_shots_df = filter_player_actions(game_shots_df, player_names)
     #     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
     # if Shottype:
