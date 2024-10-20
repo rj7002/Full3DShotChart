@@ -1,0 +1,141 @@
+id,name,logo,nationnal,country.id,country.name,country.code,country.flag
+519,Alba Berlin,https://media.api-sports.io/basketball/teams/519.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+1263,Anadolu Efes,https://media.api-sports.io/basketball/teams/1263.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+1576,Avellino,https://media.api-sports.io/basketball/teams/1576.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+2329,Barcelona,https://media.api-sports.io/basketball/teams/2329.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+2331,Baskonia,https://media.api-sports.io/basketball/teams/2331.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+410,Cibona,https://media.api-sports.io/basketball/teams/410.png,False,10.0,Croatia,HR,https://media.api-sports.io/flags/hr.svg
+1022,CSKA Moscow,https://media.api-sports.io/basketball/teams/1022.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+1270,Fenerbahce,https://media.api-sports.io/basketball/teams/1270.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+908,Gdynia,https://media.api-sports.io/basketball/teams/908.png,False,34.0,Poland,PL,https://media.api-sports.io/flags/pl.svg
+2334,Joventut Badalona,https://media.api-sports.io/basketball/teams/2334.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+23,Le Mans,https://media.api-sports.io/basketball/teams/23.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+687,Maccabi Tel Aviv,https://media.api-sports.io/basketball/teams/687.png,False,22.0,Israel,IL,https://media.api-sports.io/flags/il.svg
+100,Nancy,https://media.api-sports.io/basketball/teams/100.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+722,Olimpia Milano,https://media.api-sports.io/basketball/teams/722.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+1542,Olympiakos,https://media.api-sports.io/basketball/teams/1542.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+614,Panathinaikos,https://media.api-sports.io/basketball/teams/614.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+615,Panionios,https://media.api-sports.io/basketball/teams/615.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+1068,Partizan,https://media.api-sports.io/basketball/teams/1068.png,False,41.0,Serbia,RS,https://media.api-sports.io/flags/rs.svg
+1686,Petrol Olimpija,https://media.api-sports.io/basketball/teams/1686.png,False,43.0,Slovenia,SI,https://media.api-sports.io/flags/si.svg
+2338,Real Madrid,https://media.api-sports.io/basketball/teams/2338.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+1570,Siena,https://media.api-sports.io/basketball/teams/1570.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+2340,Unicaja,https://media.api-sports.io/basketball/teams/2340.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+733,Virtus Roma,https://media.api-sports.io/basketball/teams/733.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+796,Zalgiris Kaunas,https://media.api-sports.io/basketball/teams/796.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+606,Aris,https://media.api-sports.io/basketball/teams/606.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+1024,Khimki M.,https://media.api-sports.io/basketball/teams/1024.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+26,Lyon-Villeurbanne,https://media.api-sports.io/basketball/teams/26.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+1529,Maroussi,https://media.api-sports.io/basketball/teams/1529.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+532,Oldenburg,https://media.api-sports.io/basketball/teams/532.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+15,Orleans,https://media.api-sports.io/basketball/teams/15.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+794,Rytas,https://media.api-sports.io/basketball/teams/794.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+309,Spirou Charleroi,https://media.api-sports.io/basketball/teams/309.png,False,7.0,Belgium,BE,https://media.api-sports.io/flags/be.svg
+728,Treviso,https://media.api-sports.io/basketball/teams/728.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+2747,Ventspils,https://media.api-sports.io/basketball/teams/2747.png,False,59.0,Latvia,LV,https://media.api-sports.io/flags/lv.svg
+520,Bamberg,https://media.api-sports.io/basketball/teams/520.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+1732,Banvit,https://media.api-sports.io/basketball/teams/1732.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+1773,Budivelnyk,https://media.api-sports.io/basketball/teams/1773.png,False,49.0,Ukraine,UA,https://media.api-sports.io/flags/ua.svg
+1615,Buducnost,https://media.api-sports.io/basketball/teams/1615.png,False,29.0,Montenegro,ME,https://media.api-sports.io/flags/me.svg
+704,Caserta,https://media.api-sports.io/basketball/teams/704.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+18,Cholet,https://media.api-sports.io/basketball/teams/18.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+848,Donar Groningen,https://media.api-sports.io/basketball/teams/848.png,False,30.0,Netherlands,NL,https://media.api-sports.io/flags/nl.svg
+677,Gilboa Galil,https://media.api-sports.io/basketball/teams/677.png,False,22.0,Israel,IL,https://media.api-sports.io/flags/il.svg
+446,Nymburk,https://media.api-sports.io/basketball/teams/446.png,False,12.0,Czech-Republic,CZ,https://media.api-sports.io/flags/cz.svg
+19,Roanne,https://media.api-sports.io/basketball/teams/19.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+1030,Unics Kazan,https://media.api-sports.io/basketball/teams/1030.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+2341,Valencia,https://media.api-sports.io/basketball/teams/2341.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+1063,Vrsac,https://media.api-sports.io/basketball/teams/1063.png,False,41.0,Serbia,RS,https://media.api-sports.io/flags/rs.svg
+1695,Bilbao,https://media.api-sports.io/basketball/teams/1695.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+719,Cantu,https://media.api-sports.io/basketball/teams/719.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+5185,Donetsk,https://media.api-sports.io/basketball/teams/5185.png,False,,,,
+1271,Galatasaray,https://media.api-sports.io/basketball/teams/1271.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+17,Gravelines-Dunkerque,https://media.api-sports.io/basketball/teams/17.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+613,PAOK,https://media.api-sports.io/basketball/teams/613.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+1635,Turow Zgorzelec,https://media.api-sports.io/basketball/teams/1635.png,False,34.0,Poland,PL,https://media.api-sports.io/flags/pl.svg
+1663,VEF Riga,https://media.api-sports.io/basketball/teams/1663.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+1456,Zagreb,https://media.api-sports.io/basketball/teams/1456.png,False,10.0,Croatia,HR,https://media.api-sports.io/flags/hr.svg
+1367,Academic,https://media.api-sports.io/basketball/teams/1367.png,False,52.0,Bulgaria,BG,https://media.api-sports.io/flags/bg.svg
+1266,Besiktas,https://media.api-sports.io/basketball/teams/1266.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+1452,Cedevita,https://media.api-sports.io/basketball/teams/1452.png,False,10.0,Croatia,HR,https://media.api-sports.io/flags/hr.svg
+20,Chalon/Saone,https://media.api-sports.io/basketball/teams/20.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+308,Oostende,https://media.api-sports.io/basketball/teams/308.png,False,7.0,Belgium,BE,https://media.api-sports.io/flags/be.svg
+533,Ulm,https://media.api-sports.io/basketball/teams/533.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+522,Bayern,https://media.api-sports.io/basketball/teams/522.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+1065,Crvena zvezda mts,https://media.api-sports.io/basketball/teams/1065.png,False,41.0,Serbia,RS,https://media.api-sports.io/flags/rs.svg
+1025,Lokomotiv Kuban,https://media.api-sports.io/basketball/teams/1025.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+21,Nanterre,https://media.api-sports.io/basketball/teams/21.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+25,Strasbourg,https://media.api-sports.io/basketball/teams/25.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+730,Varese,https://media.api-sports.io/basketball/teams/730.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+919,Zielona Gora,https://media.api-sports.io/basketball/teams/919.png,False,34.0,Poland,PL,https://media.api-sports.io/flags/pl.svg
+681,Hapoel M. Jerusalem,https://media.api-sports.io/basketball/teams/681.png,True,5.0,USA,US,https://media.api-sports.io/flags/us.svg
+27,Limoges,https://media.api-sports.io/basketball/teams/27.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+791,Neptunas,https://media.api-sports.io/basketball/teams/791.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+1026,Nizhny Novgorod,https://media.api-sports.io/basketball/teams/1026.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+726,Sassari,https://media.api-sports.io/basketball/teams/726.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+1269,Darussafaka,https://media.api-sports.io/basketball/teams/1269.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+1274,Pinar Karsiyaka,https://media.api-sports.io/basketball/teams/1274.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+844,Amsterdam,https://media.api-sports.io/basketball/teams/844.png,False,30.0,Netherlands,NL,https://media.api-sports.io/flags/nl.svg
+1391,Apoel BC,https://media.api-sports.io/basketball/teams/1391.png,False,54.0,Cyprus,CY,https://media.api-sports.io/flags/cy.svg
+2871,Azovmash Mariupol,https://media.api-sports.io/basketball/teams/2871.png,False,49.0,Ukraine,UA,https://media.api-sports.io/flags/ua.svg
+302,Belfius Mons,https://media.api-sports.io/basketball/teams/302.png,False,7.0,Belgium,BE,https://media.api-sports.io/flags/be.svg
+693,Biella,https://media.api-sports.io/basketball/teams/693.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+524,Bonn,https://media.api-sports.io/basketball/teams/524.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+2810,Dynamo Moscow,https://media.api-sports.io/basketball/teams/2810.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+2333,Gran Canaria,https://media.api-sports.io/basketball/teams/2333.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+5191,Panellinios,https://media.api-sports.io/basketball/teams/5191.png,False,,,,
+795,Siauliai,https://media.api-sports.io/basketball/teams/795.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+1015,St. Petersburg,https://media.api-sports.io/basketball/teams/1015.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+5192,Teramo,https://media.api-sports.io/basketball/teams/5192.png,False,,,,
+1277,Turk Telekom,https://media.api-sports.io/basketball/teams/1277.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+2522,Wels,https://media.api-sports.io/basketball/teams/2522.png,False,3.0,Austria,AT,https://media.api-sports.io/flags/at.svg
+420,Zadar,https://media.api-sports.io/basketball/teams/420.png,False,10.0,Croatia,HR,https://media.api-sports.io/flags/hr.svg
+1031,Zenit Petersburg,https://media.api-sports.io/basketball/teams/1031.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+904,Anwil Wloclawek,https://media.api-sports.io/basketball/teams/904.png,False,34.0,Poland,PL,https://media.api-sports.io/flags/pl.svg
+284,Estudiantes,https://media.api-sports.io/basketball/teams/284.png,False,6.0,Argentina,AR,https://media.api-sports.io/flags/ar.svg
+526,Frankfurt,https://media.api-sports.io/basketball/teams/526.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+528,Gottingen,https://media.api-sports.io/basketball/teams/528.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+2988,Krasnye Krylya,https://media.api-sports.io/basketball/teams/2988.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+304,Liege,https://media.api-sports.io/basketball/teams/304.png,False,7.0,Belgium,BE,https://media.api-sports.io/flags/be.svg
+1697,Real Betis,https://media.api-sports.io/basketball/teams/1697.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+548,Artland,https://media.api-sports.io/basketball/teams/548.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+1394,ETHA Engomi,https://media.api-sports.io/basketball/teams/1394.png,False,54.0,Cyprus,CY,https://media.api-sports.io/flags/cy.svg
+1094,KK Krka Novo mesto,https://media.api-sports.io/basketball/teams/1094.png,False,43.0,Slovenia,SI,https://media.api-sports.io/flags/si.svg
+1204,Norrkoping,https://media.api-sports.io/basketball/teams/1204.png,False,46.0,Sweden,SE,https://media.api-sports.io/flags/se.svg
+447,Olomoucko,https://media.api-sports.io/basketball/teams/447.png,False,12.0,Czech-Republic,CZ,https://media.api-sports.io/flags/cz.svg
+1596,Skycop,https://media.api-sports.io/basketball/teams/1596.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+535,s.Oliver Wurzburg,https://media.api-sports.io/basketball/teams/535.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+918,Trefl Sopot,https://media.api-sports.io/basketball/teams/918.png,False,34.0,Poland,PL,https://media.api-sports.io/flags/pl.svg
+619,Alba Fehervar,https://media.api-sports.io/basketball/teams/619.png,False,19.0,Hungary,HU,https://media.api-sports.io/flags/hu.svg
+1279,Ankara Kolejliler,https://media.api-sports.io/basketball/teams/1279.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+480,BC Kalev/Cramo,https://media.api-sports.io/basketball/teams/480.png,False,14.0,Estonia,EE,https://media.api-sports.io/flags/ee.svg
+3071,Bisons Loimaa,https://media.api-sports.io/basketball/teams/3071.png,False,15.0,Finland,FI,https://media.api-sports.io/flags/fi.svg
+3164,CSU Ploiesti,https://media.api-sports.io/basketball/teams/3164.png,False,38.0,Romania,RO,https://media.api-sports.io/flags/ro.svg
+2556,Igokea,https://media.api-sports.io/basketball/teams/2556.png,False,57.0,Bosnia-and-Herzegovina,BA,https://media.api-sports.io/flags/ba.svg
+1313,Khimik,https://media.api-sports.io/basketball/teams/1313.png,False,49.0,Ukraine,UA,https://media.api-sports.io/flags/ua.svg
+14,Levallois,https://media.api-sports.io/basketball/teams/14.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+685,Maccabi Haifa,https://media.api-sports.io/basketball/teams/685.png,False,22.0,Israel,IL,https://media.api-sports.io/flags/il.svg
+867,MZT Skopje,https://media.api-sports.io/basketball/teams/867.png,False,32.0,Macedonia,MK,https://media.api-sports.io/flags/mk.svg
+2310,Radnicki,https://media.api-sports.io/basketball/teams/2310.png,False,41.0,Serbia,RS,https://media.api-sports.io/flags/rs.svg
+2342,Tecnyconta Zaragoza,https://media.api-sports.io/basketball/teams/2342.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+10,Dijon,https://media.api-sports.io/basketball/teams/10.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+725,Reggiana,https://media.api-sports.io/basketball/teams/725.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+630,Szolnoki Olaj,https://media.api-sports.io/basketball/teams/630.png,False,19.0,Hungary,HU,https://media.api-sports.io/flags/hu.svg
+2813,Volgograd,https://media.api-sports.io/basketball/teams/2813.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+605,AEK Athens,https://media.api-sports.io/basketball/teams/605.png,False,18.0,Greece,GR,https://media.api-sports.io/flags/gr.svg
+970,BC Steaua Bucuresti,https://media.api-sports.io/basketball/teams/970.png,False,38.0,Romania,RO,https://media.api-sports.io/flags/ro.svg
+718,Brindisi,https://media.api-sports.io/basketball/teams/718.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+530,Ludwigsburg,https://media.api-sports.io/basketball/teams/530.png,False,17.0,Germany,DE,https://media.api-sports.io/flags/de.svg
+1028,Saratov,https://media.api-sports.io/basketball/teams/1028.png,False,39.0,Russia,RU,https://media.api-sports.io/flags/ru.svg
+1736,Trabzonspor,https://media.api-sports.io/basketball/teams/1736.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+727,Trento,https://media.api-sports.io/basketball/teams/727.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+731,Venezia,https://media.api-sports.io/basketball/teams/731.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+2332,Fuenlabrada,https://media.api-sports.io/basketball/teams/2332.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+790,Lietkabelis,https://media.api-sports.io/basketball/teams/790.png,False,27.0,Lithuania,LT,https://media.api-sports.io/flags/lt.svg
+2336,Murcia,https://media.api-sports.io/basketball/teams/2336.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+2335,MoraBanc Andorra,https://media.api-sports.io/basketball/teams/2335.png,False,45.0,Spain,ES,https://media.api-sports.io/flags/es.svg
+1276,Tofas,https://media.api-sports.io/basketball/teams/1276.png,False,48.0,Turkey,TR,https://media.api-sports.io/flags/tr.svg
+1577,Torino,https://media.api-sports.io/basketball/teams/1577.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+717,Brescia,https://media.api-sports.io/basketball/teams/717.png,False,23.0,Italy,IT,https://media.api-sports.io/flags/it.svg
+16,Monaco,https://media.api-sports.io/basketball/teams/16.png,False,4.0,France,FR,https://media.api-sports.io/flags/fr.svg
+1616,Mornar Bar,https://media.api-sports.io/basketball/teams/1616.png,False,29.0,Montenegro,ME,https://media.api-sports.io/flags/me.svg
