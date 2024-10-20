@@ -408,7 +408,7 @@ st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30p
 st.sidebar.image("https://i.imgur.com/3oGJTcf.png")
 
 
-season = st.selectbox('Select a season',range(2007,2025))
+season = st.selectbox('Select a season',range(2000,2025))
 comptype = st.selectbox('Select a competition',['Euroleague','Eurocup'])
 if comptype == 'Euroleague':
     code = 'E'
