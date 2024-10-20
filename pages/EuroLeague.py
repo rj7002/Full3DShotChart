@@ -672,7 +672,7 @@ if games:
             size = 10
             # color = 'red'
         playername = df['PLAYER'].iloc[i]
-        formatted_name = ', '.join(reversed(name.split(', '))).title()
+        formatted_name = ', '.join(reversed(playername.split(', '))).title()
         hovertemplate = f'<br>{formatted_name}<br>{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]}<br>{df['TEAM'].iloc[i]}<br>{df['CONSOLE'].iloc[i]}'
         # hovertemplate= f"Game: {df['HTM'].iloc[i]} vs {df['VTM'].iloc[i]}<br>Result: {df['EVENT_TYPE'].iloc[i]}<br>Shot Type: {df['ACTION_TYPE'].iloc[i]}<br>Distance: {df['SHOT_DISTANCE'].iloc[i]} ft {df['SHOT_TYPE'].iloc[i]}<br>Quarter: {df['PERIOD'].iloc[i]}<br>Time: {df['MINUTES_REMAINING'].iloc[i]}:{df['SECONDS_REMAINING'].iloc[i]}"
     
