@@ -8,3 +8,4 @@ tqdm
 nba_api
 streamlit_plotly_events >= 0.0.6
 euroleague_api
+fuzzywuzzy
