@@ -481,8 +481,8 @@ fig.update_layout(
         eye=dict(x=1.3, y=0, z=0.7)
     ),
     scene=dict(
-        xaxis=dict(title='', showticklabels=False, showgrid=False,showbackground=True,backgroundcolor='black'),
-        yaxis=dict(title='', showticklabels=False, showgrid=False,showbackground=True,backgroundcolor='black'),
+        xaxis=dict(title='', showticklabels=False, showgrid=False),
+        yaxis=dict(title='', showticklabels=False, showgrid=False),
         zaxis=dict(title='',  showticklabels=False, showgrid=False, showbackground=True, backgroundcolor='#d2a679'),
     ),
     showlegend=False,
