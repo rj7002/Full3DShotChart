@@ -662,7 +662,7 @@ if games:
             color2 = '#6A0FAD'
         else:
             color = 'red'
-            color2 = '#FFA500'
+            color2 = '#FF8C00'
         if df['SHOT_MADE_FLAG'].iloc[i] == 1:
             s = 'circle-open'
             s2 = 'circle'
