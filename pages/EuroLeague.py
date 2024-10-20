@@ -756,7 +756,7 @@ if games:
 
     boxscore = BoxScoreData(competition_code)
     boxscoredf = boxscore.get_player_boxscore_stats_data(gamecode=id,season=season)
-    st.write(boxscoredf
+    st.write(boxscoredf)
 
     # import pandas as pd
     
