@@ -1,5 +1,6 @@
 from euroleague_api.shot_data import ShotData
 from euroleague_api.EuroLeagueData import EuroLeagueData
+from euroleague_api.boxscore_data import BoxScoreData
 import io
 import json
 import numpy as np
@@ -752,6 +753,11 @@ if games:
         ))
     st.subheader(gamename + ' - ' + date)
     st.plotly_chart(fig,use_container_width=True)
+
+    boxscore = BoxScoreData(competition_code)
+    boxscoredf = boxscore.get_player_boxscore_stats_data(gamecode=id,season=season)
+    st.write(boxscoredf
+
     # import pandas as pd
     
     # # Load the DataFrame
