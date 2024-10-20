@@ -484,7 +484,7 @@ if games:
         shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
     
     
-    parts = games.split('-')
+    parts = games.split(' - ')
         
     # Extract the last element (which contains the number) and strip any extra whitespace
     id = parts[-1].strip()
