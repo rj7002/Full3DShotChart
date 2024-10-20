@@ -482,7 +482,8 @@ if games:
     Shotdist = st.sidebar.toggle('Shot Distance')
     if Shotdist == 1:
         shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
-    
+    makes = st.sidebar.checkbox('Make Shotpath')
+    misses = st.sidebar.checkbox('Miss Shotpath')
     
     parts = games.split(' - ')
         
@@ -672,23 +673,40 @@ if games:
                 h = randint(175*3,200*3)
             else:
                 h = randint(150*3,175*3)
+            if makes:
+                if df['SHOT_MADE_FLAG'].iloc[i] == 1:
+                    # h = randint(200*3,250*3)
         
-            if df['SHOT_MADE_FLAG'].iloc[i] == 1:
-                # h = randint(200*3,250*3)
-    
-                apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])  # Adjust apex height as needed
-                
-                # Generate arc points
-                x, y, z = generate_arc_points(p1, p2, apex)
-                fig.add_trace(go.Scatter3d(
-                            x=x, y=y, z=z,
-                            mode='lines',
-                            line=dict(width=8,color = color),
-                            opacity =0.5,
-                            name=f'Arc {i + 1}',
-                            hoverinfo='text',
-                            hovertemplate=hovertemplate
-                        ))
+                    apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])  # Adjust apex height as needed
+                    
+                    # Generate arc points
+                    x, y, z = generate_arc_points(p1, p2, apex)
+                    fig.add_trace(go.Scatter3d(
+                                x=x, y=y, z=z,
+                                mode='lines',
+                                line=dict(width=8,color = color),
+                                opacity =0.5,
+                                name=f'Arc {i + 1}',
+                                hoverinfo='text',
+                                hovertemplate=hovertemplate
+                            ))
+            if misses:
+                 if df['SHOT_MADE_FLAG'].iloc[i] == 0:
+                    # h = randint(200*3,250*3)
+        
+                    apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])  # Adjust apex height as needed
+                    
+                    # Generate arc points
+                    x, y, z = generate_arc_points(p1, p2, apex)
+                    fig.add_trace(go.Scatter3d(
+                                x=x, y=y, z=z,
+                                mode='lines',
+                                line=dict(width=8,color = color),
+                                opacity =0.5,
+                                name=f'Arc {i + 1}',
+                                hoverinfo='text',
+                                hovertemplate=hovertemplate
+                            ))
     # Add start and end points
     
         fig.add_trace(go.Scatter3d(
