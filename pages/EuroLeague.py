@@ -530,7 +530,7 @@ if games:
     if Make:
         df = df[df['SHOT_MADE_FLAG'] == rmakemiss]
 
-    court = CourtCoordinates('2023-24')
+    court = CourtCoordinates(season)
     court_lines_df = court.get_coordinates()
     fig = px.line_3d(
         data_frame=court_lines_df,
