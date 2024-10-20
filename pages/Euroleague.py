@@ -834,7 +834,7 @@ for i in range(len(df)):
         hovertemplate=hovertemplate
 
     ))
-st.plotly_fig(fig)
+st.plotly_chart(fig)
 # import pandas as pd
 
 # # Load the DataFrame
