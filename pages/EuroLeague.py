@@ -508,6 +508,12 @@ if games:
     # df = shotdata.get_game_shot_data(season, game_code)
     # df.to_csv('euroleague.csv')
     df = shotdata.get_game_shot_data(season, id)
+    boxscore = BoxScoreData(competition_code)
+    boxscoredf = boxscore.get_player_boxscore_stats_data(gamecode=id,season=season)
+    uniqueplayers = boxscoredf['Player'].unique()
+    Player = st.sidebar.toggle('Players')
+    if Player == 1:
+        selectplayers = st.multiselect('Select players',uniqueplayers)
     teams = df['TEAM'].unique()
     team1 = teams[0]
     team2 = teams[1]
@@ -754,8 +760,7 @@ if games:
     st.subheader(gamename + ' - ' + date)
     st.plotly_chart(fig,use_container_width=True)
 
-    boxscore = BoxScoreData(competition_code)
-    boxscoredf = boxscore.get_player_boxscore_stats_data(gamecode=id,season=season)
+    
     st.write(boxscoredf)
 
     # import pandas as pd
