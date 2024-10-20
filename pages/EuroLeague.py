@@ -447,7 +447,7 @@ for index, row in leaguedf.iterrows():
     ddate2 = row['date']
 
     typegame = row['round']
-    game = f"{row['awayteam']} @ {row['hometeam']} - {typegame} - {ddate2} - {row['gamenumber']}"
+    game = f"{row['awayteam'].title()} @ {row['hometeam'].title()} - {typegame} - {ddate2} - {row['gamenumber']}"
     # Append the concatenated string to the games list
     games.append(game)# Create a selectbox in Streamlit
 games = st.selectbox('Select game', [''] + games)
