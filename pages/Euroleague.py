@@ -418,14 +418,18 @@ for index, row in leaguedf.iterrows():
     ddate2 = row['date']
 
     typegame = row['round']
-    game = f"{row['awayteam']} @ {row['hometeam']} - {typegame} - {ddate2} - {row['gamecode']}"
+    game = f"{row['awayteam']} @ {row['hometeam']} - {typegame} - {ddate2} - {row['gamenumber']}"
     # Append the concatenated string to the games list
     games.append(game)# Create a selectbox in Streamlit
 games = st.selectbox('Select game', [''] + games)
+parts = games.split('-')
+    
+# Extract the last element (which contains the number) and strip any extra whitespace
+id = parts[-1].strip()
 
 # df = shotdata.get_game_shot_data(season, game_code)
 # df.to_csv('euroleague.csv')
-df = pd.read_csv('euroleague.csv')
+df = shotdata.get_game_shot_data(season, id)
 teams = df['TEAM'].unique()
 team1 = teams[0]
 team2 = teams[1]
