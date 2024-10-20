@@ -414,11 +414,11 @@ class CourtCoordinates:
 
 
 
-st.set_page_config(page_title="3D EuroLeague Shot Visualizer", page_icon='https://ih1.redbubble.net/image.3199639110.4026/raf,750x1000,075,t,101010:01c5ca27c6.jpg',layout="wide")
+st.set_page_config(page_title="3D EuroLeague Shot Visualizer", page_icon='https://i.imgur.com/i8C2FDg.png',layout="wide")
 st.markdown(f'<h3 style="color: gray; text-align: center; font-size: 100px;">3D EuroLeague Shot Visualizer</h3>', unsafe_allow_html=True)
 
 st.sidebar.markdown('<div style="text-align: center;"><span style="font-size:30px;">3D EuroLeague Shot Visualizer</span></div>', unsafe_allow_html=True)
-st.sidebar.image("https://ih1.redbubble.net/image.3199639110.4026/raf,750x1000,075,t,101010:01c5ca27c6.jpg")
+st.sidebar.image("https://i.imgur.com/i8C2FDg.png")
 year = datetime.now().year
 month = datetime.now().month
 current_year = year
@@ -815,6 +815,6 @@ if games:
     # df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
     # df.to_csv('euroleague.csv')
 else:
-    image_url = 'https://ih1.redbubble.net/image.3199639110.4026/raf,750x1000,075,t,101010:01c5ca27c6.jpg'
+    image_url = 'https://i.imgur.com/i8C2FDg.png'
 
     st.markdown(f'<img src="{image_url}" style="width:100%; height:auto;">', unsafe_allow_html=True)
