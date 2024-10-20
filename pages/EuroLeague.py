@@ -764,4 +764,7 @@ if games:
     # #         df.at[index, 'SHOT_MADE_FLAG'] = 0  # Set to 0 if the shot was missed
     # df = df[~df['ACTION'].str.contains('Free Throw', na=False)]
     # df.to_csv('euroleague.csv')
-    
+else:
+    image_url = 'https://ih1.redbubble.net/image.3199639110.4026/raf,750x1000,075,t,101010:01c5ca27c6.jpg'
+
+    st.markdown(f'<img src="{image_url}" style="width:100%; height:auto;">', unsafe_allow_html=True)
