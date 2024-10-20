@@ -536,8 +536,8 @@ if games:
     #     print(score)
     # else:
     #     print('Not found')
-    df2 = df[df['name'] == hname]
-    df3 = df[df['name'] == aname]
+    df2 = df2[df2['name'] == hname]
+    df3 = df3[df3['name'] == aname]
     homelogo = df2['logo'].iloc[0]
     awaylogo = df3['logo'].iloc[0]
     
