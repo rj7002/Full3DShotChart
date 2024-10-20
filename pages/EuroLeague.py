@@ -440,7 +440,7 @@ competition_code = code
 shotdata = ShotData(competition_code)
 leaguedata = EuroLeagueData(competition_code)
 leaguedf = leaguedata.get_game_metadata_season(season)
-st.write(leaguedf)
+# st.write(leaguedf)
 games = []
 for index, row in leaguedf.iterrows():
 # Concatenate home team and away team names for the current row
@@ -671,7 +671,9 @@ if games:
             s2 = 'cross'
             size = 10
             # color = 'red'
-        hovertemplate = f'{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]} - {df['PLAYER'].iloc[i]} - {df['TEAM'].iloc[i]} - {df['CONSOLE'].iloc[i]}'
+        playername = df['PLAYER'].iloc[i]
+        formatted_name = ', '.join(reversed(name.split(', '))).title()
+        hovertemplate = f'<br>{formatted_name}<br>{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]}<br>{df['TEAM'].iloc[i]}<br>{df['CONSOLE'].iloc[i]}'
         # hovertemplate= f"Game: {df['HTM'].iloc[i]} vs {df['VTM'].iloc[i]}<br>Result: {df['EVENT_TYPE'].iloc[i]}<br>Shot Type: {df['ACTION_TYPE'].iloc[i]}<br>Distance: {df['SHOT_DISTANCE'].iloc[i]} ft {df['SHOT_TYPE'].iloc[i]}<br>Quarter: {df['PERIOD'].iloc[i]}<br>Time: {df['MINUTES_REMAINING'].iloc[i]}:{df['SECONDS_REMAINING'].iloc[i]}"
     
         if df['SHOT_DISTANCE'].iloc[i] > 3:
