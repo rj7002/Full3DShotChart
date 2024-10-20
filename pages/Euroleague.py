@@ -412,6 +412,15 @@ shotdata = ShotData(competition_code)
 leaguedata = EuroLeagueData(competition_code)
 leaguedf = leaguedata.get_game_metadata_season(season)
 st.write(leaguedf)
+for index, row in leaguedf.iterrows():
+# Concatenate home team and away team names for the current row
+    ddate2 = row['date']
+
+    typegame = row['round']
+    game = f"{row['awayteam']} @ {row['hometeam']} - {typegame} - {ddate2} - {row['gamecode']}"
+    # Append the concatenated string to the games list
+    games.append(game)# Create a selectbox in Streamlit
+games = st.selectbox('Select game', [''] + games)
 
 # df = shotdata.get_game_shot_data(season, game_code)
 # df.to_csv('euroleague.csv')
