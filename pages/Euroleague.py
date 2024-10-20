@@ -603,7 +603,7 @@ for i in range(len(df)):
             fig.add_trace(go.Scatter3d(
                         x=x, y=y, z=z,
                         mode='lines',
-                        line=dict(width=8*,color = color),
+                        line=dict(width=8,color = color),
                         opacity =0.5,
                         name=f'Arc {i + 1}',
                         hoverinfo='text',
