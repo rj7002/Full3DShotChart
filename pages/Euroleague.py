@@ -571,12 +571,12 @@ for i in range(len(df)):
     if df['SHOT_MADE_FLAG'].iloc[i] == 1:
         s = 'circle-open'
         s2 = 'circle'
-        size = 9*1.25
+        size = 9
         # color = 'green'
     else:
         s = 'cross'
         s2 = 'cross'
-        size = 10*1.25
+        size = 10
         # color = 'red'
     hovertemplate = f'{round(df['SHOT_DISTANCE'].iloc[i])} ft {df['ACTION'].iloc[i]} - {df['PLAYER'].iloc[i]} - {df['TEAM'].iloc[i]} - {df['CONSOLE'].iloc[i]}'
     # hovertemplate= f"Game: {df['HTM'].iloc[i]} vs {df['VTM'].iloc[i]}<br>Result: {df['EVENT_TYPE'].iloc[i]}<br>Shot Type: {df['ACTION_TYPE'].iloc[i]}<br>Distance: {df['SHOT_DISTANCE'].iloc[i]} ft {df['SHOT_TYPE'].iloc[i]}<br>Quarter: {df['PERIOD'].iloc[i]}<br>Time: {df['MINUTES_REMAINING'].iloc[i]}:{df['SECONDS_REMAINING'].iloc[i]}"
@@ -603,7 +603,7 @@ for i in range(len(df)):
             fig.add_trace(go.Scatter3d(
                         x=x, y=y, z=z,
                         mode='lines',
-                        line=dict(width=8*1.25,color = color),
+                        line=dict(width=8*,color = color),
                         opacity =0.5,
                         name=f'Arc {i + 1}',
                         hoverinfo='text',
@@ -626,7 +626,7 @@ for i in range(len(df)):
         y=[p2[1], p2[1]],
         z=[p2[2], p2[2]],
         mode='markers',
-        marker=dict(size=5*1.25, symbol=s2,color = color),
+        marker=dict(size=5, symbol=s2,color = color),
         name=f'Endpoints {i + 1}',
         hoverinfo='text',
         hovertemplate=hovertemplate
