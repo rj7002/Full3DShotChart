@@ -116,7 +116,7 @@ class CourtCoordinates:
 
     def calculate_free_throw_line_coordinates(self):
         radius = 187.5  # Radius of free-throw arc in cm
-        circle_center = [0, 500 - 25, 0]  # Adjusted center for size
+        circle_center = [0, 580 - 25, 0]  # Adjusted center for size
         circle_points = []
         num_points = 100
 
@@ -227,7 +227,7 @@ class CourtCoordinates:
 
     def calculate_free_throw_line_coordinates2(self):
         radius = 187.5  # Radius of free-throw arc in cm
-        circle_center = [0, 2833 - 500 + 25, 0]  # Adjusted center for size
+        circle_center = [0, 2833 - 580 + 25, 0]  # Adjusted center for size
         circle_points = []
         num_points = 100
 
