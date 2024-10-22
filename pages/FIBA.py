@@ -80,6 +80,100 @@ try:
 
     # Combine both DataFrames
     combined_df = pd.concat([df_team_1, df_team_2], ignore_index=True)
+
+    filtered_data = {
+    'score': teamdf['score'],
+    'full_score': teamdf['full_score'],
+    'tot_sMinutes': teamdf['tot_sMinutes'],
+    'tot_sFieldGoalsMade': teamdf['tot_sFieldGoalsMade'],
+    'tot_sFieldGoalsAttempted': teamdf['tot_sFieldGoalsAttempted'],
+    'tot_sFieldGoalsPercentage': teamdf['tot_sFieldGoalsPercentage'],
+    'tot_sThreePointersMade': teamdf['tot_sThreePointersMade'],
+    'tot_sThreePointersAttempted': teamdf['tot_sThreePointersAttempted'],
+    'tot_sThreePointersPercentage': teamdf['tot_sThreePointersPercentage'],
+    'tot_sTwoPointersMade': teamdf['tot_sTwoPointersMade'],
+    'tot_sTwoPointersAttempted': teamdf['tot_sTwoPointersAttempted'],
+    'tot_sTwoPointersPercentage': teamdf['tot_sTwoPointersPercentage'],
+    'tot_sFreeThrowsMade': teamdf['tot_sFreeThrowsMade'],
+    'tot_sFreeThrowsAttempted': teamdf['tot_sFreeThrowsAttempted'],
+    'tot_sFreeThrowsPercentage': teamdf['tot_sFreeThrowsPercentage'],
+    'tot_sReboundsDefensive': teamdf['tot_sReboundsDefensive'],
+    'tot_sReboundsOffensive': teamdf['tot_sReboundsOffensive'],
+    'tot_sReboundsTotal': teamdf['tot_sReboundsTotal'],
+    'tot_sAssists': teamdf['tot_sAssists'],
+    'tot_sTurnovers': teamdf['tot_sTurnovers'],
+    'tot_sSteals': teamdf['tot_sSteals'],
+    'tot_sBlocks': teamdf['tot_sBlocks'],
+    'tot_sBlocksReceived': teamdf['tot_sBlocksReceived'],
+    'tot_sFoulsPersonal': teamdf['tot_sFoulsPersonal'],
+    'tot_sFoulsOn': teamdf['tot_sFoulsOn'],
+    'tot_sFoulsTotal': teamdf['tot_sFoulsTotal'],
+    'tot_sPoints': teamdf['tot_sPoints'],
+    'tot_sPointsFromTurnovers': teamdf['tot_sPointsFromTurnovers'],
+    'tot_sPointsSecondChance': teamdf['tot_sPointsSecondChance'],
+    'tot_sPointsFastBreak': teamdf['tot_sPointsFastBreak'],
+    'tot_sBenchPoints': teamdf['tot_sBenchPoints'],
+    'tot_sPointsInThePaint': teamdf['tot_sPointsInThePaint'],
+    'tot_sTimeLeading': teamdf['tot_sTimeLeading'],
+    'tot_sBiggestLead': teamdf['tot_sBiggestLead'],
+    'tot_sBiggestScoringRun': teamdf['tot_sBiggestScoringRun'],
+    'tot_sLeadChanges': teamdf['tot_sLeadChanges'],
+    'tot_sTimesScoresLevel': teamdf['tot_sTimesScoresLevel'],
+    'tot_sFoulsTeam': teamdf['tot_sFoulsTeam'],
+    'tot_sReboundsTeam': teamdf['tot_sReboundsTeam'],
+    'tot_sReboundsTeamDefensive': teamdf['tot_sReboundsTeamDefensive'],
+    'tot_sReboundsTeamOffensive': teamdf['tot_sReboundsTeamOffensive'],
+    'tot_sTurnoversTeam': teamdf['tot_sTurnoversTeam'],
+}
+    filtered_data2 = {
+    'score': teamdf2['score'],
+    'full_score': teamdf2['full_score'],
+    'tot_sMinutes': teamdf2['tot_sMinutes'],
+    'tot_sFieldGoalsMade': teamdf2['tot_sFieldGoalsMade'],
+    'tot_sFieldGoalsAttempted': teamdf2['tot_sFieldGoalsAttempted'],
+    'tot_sFieldGoalsPercentage': teamdf2['tot_sFieldGoalsPercentage'],
+    'tot_sThreePointersMade': teamdf2['tot_sThreePointersMade'],
+    'tot_sThreePointersAttempted': teamdf2['tot_sThreePointersAttempted'],
+    'tot_sThreePointersPercentage': teamdf2['tot_sThreePointersPercentage'],
+    'tot_sTwoPointersMade': teamdf2['tot_sTwoPointersMade'],
+    'tot_sTwoPointersAttempted': teamdf2['tot_sTwoPointersAttempted'],
+    'tot_sTwoPointersPercentage': teamdf2['tot_sTwoPointersPercentage'],
+    'tot_sFreeThrowsMade': teamdf2['tot_sFreeThrowsMade'],
+    'tot_sFreeThrowsAttempted': teamdf2['tot_sFreeThrowsAttempted'],
+    'tot_sFreeThrowsPercentage': teamdf2['tot_sFreeThrowsPercentage'],
+    'tot_sReboundsDefensive': teamdf2['tot_sReboundsDefensive'],
+    'tot_sReboundsOffensive': teamdf2['tot_sReboundsOffensive'],
+    'tot_sReboundsTotal': teamdf2['tot_sReboundsTotal'],
+    'tot_sAssists': teamdf2['tot_sAssists'],
+    'tot_sTurnovers': teamdf2['tot_sTurnovers'],
+    'tot_sSteals': teamdf2['tot_sSteals'],
+    'tot_sBlocks': teamdf2['tot_sBlocks'],
+    'tot_sBlocksReceived': teamdf2['tot_sBlocksReceived'],
+    'tot_sFoulsPersonal': teamdf2['tot_sFoulsPersonal'],
+    'tot_sFoulsOn': teamdf2['tot_sFoulsOn'],
+    'tot_sFoulsTotal': teamdf2['tot_sFoulsTotal'],
+    'tot_sPoints': teamdf2['tot_sPoints'],
+    'tot_sPointsFromTurnovers': teamdf2['tot_sPointsFromTurnovers'],
+    'tot_sPointsSecondChance': teamdf2['tot_sPointsSecondChance'],
+    'tot_sPointsFastBreak': teamdf2['tot_sPointsFastBreak'],
+    'tot_sBenchPoints': teamdf2['tot_sBenchPoints'],
+    'tot_sPointsInThePaint': teamdf2['tot_sPointsInThePaint'],
+    'tot_sTimeLeading': teamdf2['tot_sTimeLeading'],
+    'tot_sBiggestLead': teamdf2['tot_sBiggestLead'],
+    'tot_sBiggestScoringRun': teamdf2['tot_sBiggestScoringRun'],
+    'tot_sLeadChanges': teamdf2['tot_sLeadChanges'],
+    'tot_sTimesScoresLevel': teamdf2['tot_sTimesScoresLevel'],
+    'tot_sFoulsTeam': teamdf2['tot_sFoulsTeam'],
+    'tot_sReboundsTeam': teamdf2['tot_sReboundsTeam'],
+    'tot_sReboundsTeamDefensive': teamdf2['tot_sReboundsTeamDefensive'],
+    'tot_sReboundsTeamOffensive': teamdf2['tot_sReboundsTeamOffensive'],
+    'tot_sTurnoversTeam': teamdf2['tot_sTurnoversTeam'],
+}
+
+# Create the DataFrame
+    bdf = pd.DataFrame([filtered_data])  # Wrap in a list to create a DataFrame
+    bf2 = pd.DataFrame([filtered_data2])
+    boxscoret = pd.concat([bdf, bdf2], ignore_index=True)
     
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
@@ -713,4 +807,5 @@ with col2:
     st.image(url,width=250)
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
+st.write(boxscoret)
 # Show the plot
