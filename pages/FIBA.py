@@ -818,52 +818,52 @@ st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
 num_players_per_row = 5
 cols = st.columns(num_players_per_row)  # Initialize columns before the loop
-
-for index, row in playerbox.iterrows():
-    # Check for NaN values in the critical stats
-    critical_stats = [
-        'sMinutes', 
-        'sFieldGoalsMade', 
-        'sFieldGoalsAttempted', 
-        'sFieldGoalsPercentage', 
-        'sThreePointersMade', 
-        'sThreePointersAttempted', 
-        'sFreeThrowsMade', 
-        'sReboundsTotal', 
-        'sAssists', 
-        'sPoints'
-    ]
+with st.expander('Player Stats'):
+    for index, row in playerbox.iterrows():
+        # Check for NaN values in the critical stats
+        critical_stats = [
+            'sMinutes', 
+            'sFieldGoalsMade', 
+            'sFieldGoalsAttempted', 
+            'sFieldGoalsPercentage', 
+            'sThreePointersMade', 
+            'sThreePointersAttempted', 
+            'sFreeThrowsMade', 
+            'sReboundsTotal', 
+            'sAssists', 
+            'sPoints'
+        ]
+        
+        if any(pd.isna(row[stat]) for stat in critical_stats):
+            break  # Stop processing if any critical stat is NaN
+        
+        col_index = index % num_players_per_row  # Determine column index
+        with cols[col_index]:
+            first_name = row.get('firstName', 'Unknown')
+            family_name = row.get('familyName', 'Unknown')
+            st.header(f"{first_name} {family_name}")
     
-    if any(pd.isna(row[stat]) for stat in critical_stats):
-        break  # Stop processing if any critical stat is NaN
+            # Check if the image URL exists or is valid
+            if pd.notnull(row.get('photoT')) and row['photoT'].startswith("http"):
+                st.image(row['photoT'], width=100)
+            else:
+                st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EnGw6bC6e96sl9Wx3B35YJajLfSN6fio4Q&s", width=100)  # Use a placeholder image
     
-    col_index = index % num_players_per_row  # Determine column index
-    with cols[col_index]:
-        first_name = row.get('firstName', 'Unknown')
-        family_name = row.get('familyName', 'Unknown')
-        st.header(f"{first_name} {family_name}")
-
-        # Check if the image URL exists or is valid
-        if pd.notnull(row.get('photoT')) and row['photoT'].startswith("http"):
-            st.image(row['photoT'], width=100)
-        else:
-            st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EnGw6bC6e96sl9Wx3B35YJajLfSN6fio4Q&s", width=100)  # Use a placeholder image
-
-        st.write("### Stats")
-        st.write(f"- Minutes: {row.get('sMinutes', 'N/A')}")
-        st.write(f"- Field Goals Made: {row.get('sFieldGoalsMade', 'N/A')}")
-        st.write(f"- Field Goals Attempted: {row.get('sFieldGoalsAttempted', 'N/A')}")
-        st.write(f"- Field Goals Percentage: {row.get('sFieldGoalsPercentage', 'N/A')}%")
-        st.write(f"- Three Pointers Made: {row.get('sThreePointersMade', 'N/A')}")
-        st.write(f"- Three Pointers Attempted: {row.get('sThreePointersAttempted', 'N/A')}")
-        st.write(f"- Free Throws Made: {row.get('sFreeThrowsMade', 'N/A')}")
-        st.write(f"- Rebounds: {row.get('sReboundsTotal', 'N/A')}")
-        st.write(f"- Assists: {row.get('sAssists', 'N/A')}")
-        st.write(f"- Points: {row.get('sPoints', 'N/A')}")
-        st.write("---")
-
-    if col_index == num_players_per_row - 1:  # After filling one row
-        cols = st.columns(num_players_per_row)  # Reset columns for the next row
+            st.write("### Stats")
+            st.write(f"- Minutes: {row.get('sMinutes', 'N/A')}")
+            st.write(f"- Field Goals Made: {row.get('sFieldGoalsMade', 'N/A')}")
+            st.write(f"- Field Goals Attempted: {row.get('sFieldGoalsAttempted', 'N/A')}")
+            st.write(f"- Field Goals Percentage: {row.get('sFieldGoalsPercentage', 'N/A')}%")
+            st.write(f"- Three Pointers Made: {row.get('sThreePointersMade', 'N/A')}")
+            st.write(f"- Three Pointers Attempted: {row.get('sThreePointersAttempted', 'N/A')}")
+            st.write(f"- Free Throws Made: {row.get('sFreeThrowsMade', 'N/A')}")
+            st.write(f"- Rebounds: {row.get('sReboundsTotal', 'N/A')}")
+            st.write(f"- Assists: {row.get('sAssists', 'N/A')}")
+            st.write(f"- Points: {row.get('sPoints', 'N/A')}")
+            st.write("---")
+    
+        if col_index == num_players_per_row - 1:  # After filling one row
+            cols = st.columns(num_players_per_row)  # Reset columns for the next row
 
 
 # Show the plot
