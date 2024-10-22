@@ -23,7 +23,7 @@ import streamlit as st
 
 st.set_page_config(page_title="3D Basketball Shot Visualizer", page_icon='🏀',layout="wide")
 st.write(
-    'Enter a game ID to view the 3D shot chart. Leagues such as the [NBL](https://nbl.com.au) and the [TBL](https://https://thebasketballleague.net) along with some FIBA games are available to view.'
+    'Enter a game ID to view the 3D shot chart. Leagues such as the [NBL](https://nbl.com.au) and the [TBL](https://thebasketballleague.net/) along with some FIBA games are available to view.'
 )
 
 
