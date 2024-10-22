@@ -707,11 +707,11 @@ with col1:
 
     # # Extract the URL
     url = logo1['url']
-    st.image(url,400)
+    st.image(url,width=250)
 with col2: 
  
     url = logo2['url']
-    st.image(url,400)
+    st.image(url,width=250)
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig)
 # Show the plot
