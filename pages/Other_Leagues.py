@@ -821,13 +821,13 @@ for x, y, z, symbol,size,color,action,sub,player,r,team,dist,per in zip(x_coords
     else:
         r2 = 'missed'
     if per == 1:
-        per2 = '1st'
+        per2 = '1st Quarter'
     elif per == 2:
-        per2 = '2nd'
+        per2 = '2nd Quarter'
     elif per == 3:
-        per2 = '3rd'
+        per2 = '3rd Quarter'
     elif per == 4:
-        per2 = '4th'
+        per2 = '4th Quarter'
     else:
         per2 = 'Overtime'
     fig.add_trace(go.Scatter3d(
@@ -842,7 +842,7 @@ for x, y, z, symbol,size,color,action,sub,player,r,team,dist,per in zip(x_coords
             opacity=0.8
         ),
         hoverinfo='text',
-        text=f'{player} {r2} {round(dist)} ft {action} {sub} - {team}: {per2} Quarter'
+        text=f'{player} {r2} {round(dist)} ft {action} {sub} - {team}: {per2}'
     ))
 
 
@@ -973,13 +973,13 @@ for i in range(len(df)):
     dists = df['SHOT_DISTANCE'].iloc[i]
     per = df['per'].iloc[i]
     if per == 1:
-        per2 = '1st'
+        per2 = '1st Quarter'
     elif per == 2:
-        per2 = '2nd'
+        per2 = '2nd Quarter'
     elif per == 3:
-        per2 = '3rd'
+        per2 = '3rd Quarter'
     elif per == 4:
-        per2 = '4th'
+        per2 = '4th Quarter'
     else:
         per2 = 'Overtime'
 
@@ -995,7 +995,7 @@ for i in range(len(df)):
                 line=dict(width=8,color = color),
                 opacity =0.5,
                 hoverinfo='text',
-                hovertemplate=f'{players} {r2} {round(dists)} ft {action} {subs} - {teams}: {per2} Quarter'
+                hovertemplate=f'{players} {r2} {round(dists)} ft {action} {subs} - {teams}: {per2}'
             ))
 
 # Show the plot
