@@ -756,7 +756,7 @@ for index, row in df.iterrows():
             # Append the value from column 'x' to the list
             y_values.append(row['y'])
             z_values.append(0)
-        if row['x'] == 'Home' and row['x'] >= 50:
+        elif row['x'] == 'Home' and row['x'] >= 50:
             x_values.append(100-row['x'])
             # Append the value from column 'x' to the list
             y_values.append(row['y'])
