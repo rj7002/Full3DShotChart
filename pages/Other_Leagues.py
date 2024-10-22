@@ -207,7 +207,7 @@ except requests.exceptions.RequestException as e:
 df = combined_df
 teamdf = teamdffinal
 # st.write(teamdffinal)
-st.write(combined_df)
+# st.write(combined_df)
 df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
