@@ -235,9 +235,10 @@ if Make == 1:
         rmakemiss = 1
     else:
         rmakemiss = 0
-# Quarter = st.sidebar.toggle('Quarter')
-# if Quarter == 1:
-#     quart = st.sidebar.multiselect('',unique_periods)
+unique_periods = df['per'].unique()
+Quarter = st.sidebar.toggle('Quarter')
+if Quarter == 1:
+    quart = st.sidebar.multiselect('',unique_periods)
 Player = st.sidebar.toggle('Players')
 if Player == 1:
     uniqueplayers = df['player'].unique()
@@ -290,6 +291,8 @@ if Points:
 #     df = df[(df['TimeMinutes'] >= timemin) & (df['TimeMinutes'] <= timemax)]
 if Make:
     df = df[df['r'] == rmakemiss]
+if Quarter:
+    df = df[df['per'].isin(quart)]
 
 import pandas as pd
 import numpy as np
