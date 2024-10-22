@@ -58,7 +58,6 @@ try:
     'nameInternational': teamdf['nameInternational'],
     'logo': teamdf['logo'],
     'logoT': teamdf['logoT'],
-    'logoS': teamdf['logoS'],
     'code': teamdf['code'],
 }
     filtered_data2 = {
@@ -66,7 +65,6 @@ try:
     'nameInternational': teamdf2['nameInternational'],
     'logo': teamdf2['logo'],
     'logoT': teamdf2['logoT'],
-    'logoS': teamdf2['logoS'],
     'code': teamdf2['code'],
 }
 
