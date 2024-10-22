@@ -988,6 +988,7 @@ with col2:
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
+st.write(playerbox)
 with st.expander('Player Stats'):
     num_players_per_row = 5
     cols = st.columns(num_players_per_row)  # Initialize columns before the loop
