@@ -855,8 +855,8 @@ for index, row in df.iterrows():
     if Group:
         if row['TEAMTYPE'] == 'Home' and row['x'] >= 50:
             row['x'] = 100-row['x']
-        elif row['TEAMTYPE'] == 'Away' and row['x'] <= 50:
-            row['x'] = 100-row['x']
+        # elif row['TEAMTYPE'] == 'Away' and row['x'] <= 50:
+        #     row['x'] = 100-row['x']
     if row['x'] == 'Away':
         x_values.append(row['x'])
         # Append the value from column 'x' to the list
