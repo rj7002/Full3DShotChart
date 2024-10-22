@@ -22,7 +22,14 @@ import ast
 import streamlit as st
 
 st.set_page_config(page_title="3D Basketball Shot Visualizer", page_icon='🏀',layout="wide")
-st.write('Enter a game id to view the 3D shot chart. Leagues such as the NBL, BAL, TBL along with some FIBA games are available to view.')
+st.write('Enter a game ID to view the 3D shot chart. Leagues such as the NBL and TBL along with some FIBA games are available to view.')
+
+nbl_url = "https://nbl.com.au"  # Replace with the actual NBL website URL
+iframe_code = f'<iframe src="{nbl_url}" width="100%" height="500" frameborder="0"></iframe>'
+
+# Display the iframe
+st.components.v1.html(iframe_code, height=600, scrolling=True)
+
 id = st.number_input('',value=1816801)
 gameid = id
 url = f"https://fibalivestats.dcd.shared.geniussports.com/data/{gameid}/data.json"
