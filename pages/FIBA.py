@@ -816,19 +816,27 @@ with col2:
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
-for index, row in playerbox.iterrows():
-    st.header(f"{row['firstName']} {row['familyName']}")
-    st.image(row['photoT'], width=150)
-    st.write("### Stats")
-    st.write(f"- Minutes: {row['sMinutes']}")
-    st.write(f"- Field Goals Made: {row['sFieldGoalsMade']}")
-    st.write(f"- Field Goals Attempted: {row['sFieldGoalsAttempted']}")
-    st.write(f"- Field Goals Percentage: {row['sFieldGoalsPercentage']}%")
-    st.write(f"- Three Pointers Made: {row['sThreePointersMade']}")
-    st.write(f"- Three Pointers Attempted: {row['sThreePointersAttempted']}")
-    st.write(f"- Free Throws Made: {row['sFreeThrowsMade']}")
-    st.write(f"- Rebounds: {row['sReboundsTotal']}")
-    st.write(f"- Assists: {row['sAssists']}")
-    st.write(f"- Points: {row['sPoints']}")
-    st.write("---")
+num_players_per_row = 5
+cols = st.columns(num_players_per_row)
+
+for index, row in df.iterrows():
+    col_index = index % num_players_per_row  # Determine column index
+    with cols[col_index]:
+        st.header(f"{row['firstName']} {row['familyName']}")
+        st.image(row['photoT'], width=150)
+        st.write("### Stats")
+        st.write(f"- Minutes: {row['sMinutes']}")
+        st.write(f"- Field Goals Made: {row['sFieldGoalsMade']}")
+        st.write(f"- Field Goals Attempted: {row['sFieldGoalsAttempted']}")
+        st.write(f"- Field Goals Percentage: {row['sFieldGoalsPercentage']}%")
+        st.write(f"- Three Pointers Made: {row['sThreePointersMade']}")
+        st.write(f"- Three Pointers Attempted: {row['sThreePointersAttempted']}")
+        st.write(f"- Free Throws Made: {row['sFreeThrowsMade']}")
+        st.write(f"- Rebounds: {row['sReboundsTotal']}")
+        st.write(f"- Assists: {row['sAssists']}")
+        st.write(f"- Points: {row['sPoints']}")
+        st.write("---")
+
+    if col_index == num_players_per_row - 1:  # After filling one row
+        cols = st.columns(num_players_per_row)  # Reset columns for the next row
 # Show the plot
