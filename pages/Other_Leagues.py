@@ -190,7 +190,7 @@ try:
     boxscoret = pd.concat([bdf, bdf2], ignore_index=True)
 
     playerdf = data2['tm']['1']['pl']
-    playerdf2 = data2['tm']['2']
+    playerdf2 = data2['tm']['2']['pl']
    
     pbdf = pd.DataFrame.from_dict(playerdf, orient='index')
     pbdf2 = pd.DataFrame.from_dict(playerdf2, orient='index')
