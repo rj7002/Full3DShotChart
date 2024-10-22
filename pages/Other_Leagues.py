@@ -403,7 +403,7 @@ def create_pitch_3d():
             z=[0, 0],  # Adjust according to your z range
             mode='lines',
             line=dict(color='black', width=4),  # Line color and width
-            name=f'Line at y={y_line}'  # Optional legend entry
+            hoverinfo='none'
         ))
 
     y_lines = [50-3.5, 3.5]
@@ -414,7 +414,7 @@ def create_pitch_3d():
             z=[0, 0],  # Adjust according to your z range
             mode='lines',
             line=dict(color='black', width=4),  # Line color and width
-            name=f'Line at y={y_line}'  # Optional legend entry
+            hoverinfo='none'
         ))
 
     x_start, y_start = 10.5, 46.5
@@ -752,7 +752,7 @@ def create_pitch_3d():
             z=z_net[i*10:(i+1)*10],
             mode='lines',
             line=dict(color='white', width=2),
-            name='Net Line ' + str(i)
+            hoverinfo='none'
         ))
     # Generate net coordinates
     hoop_net_coordinates = []
@@ -778,7 +778,7 @@ def create_pitch_3d():
             z=z_net[i*10:(i+1)*10],
             mode='lines',
             line=dict(color='white', width=2),
-            name='Net Line ' + str(i)
+            hoverinfo='none'
         ))
     
     return fig
@@ -814,11 +814,22 @@ players = df['player'].values
 rs = df['r'].values
 teams = df['team'].values
 dists = df['SHOT_DISTANCE'].values
-for x, y, z, symbol,size,color,action,sub,player,r,team,dist in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs,teams,dists):
+pers = df['per'].values
+for x, y, z, symbol,size,color,action,sub,player,r,team,dist,per in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs,teams,dists,pers):
     if r == 1:
         r2 = 'made'
     else:
         r2 = 'missed'
+    if per == 1:
+        per2 = '1st'
+    elif per == 2:
+        per2 = '2nd'
+    elif per == 3:
+        per2 = '3rd'
+    elif per == 4:
+        per2 = '4th'
+    else:
+        per2 = 'Overtime'
     fig.add_trace(go.Scatter3d(
         x=[x],
         y=[y],
@@ -831,7 +842,7 @@ for x, y, z, symbol,size,color,action,sub,player,r,team,dist in zip(x_coords, y_
             opacity=0.8
         ),
         hoverinfo='text',
-        text=f'{player} {r2} {round(dist)} ft {action} {sub} - {team}'
+        text=f'{player} {r2} {round(dist)} ft {action} {sub} - {team}: {per2} Quarter'
     ))
 
 
@@ -960,6 +971,17 @@ for i in range(len(df)):
     rs = df['r'].iloc[i]
     teams = df['team'].iloc[i]
     dists = df['SHOT_DISTANCE'].iloc[i]
+    per = df['per'].iloc[i]
+    if per == 1:
+        per2 = '1st'
+    elif per == 2:
+        per2 = '2nd'
+    elif per == 3:
+        per2 = '3rd'
+    elif per == 4:
+        per2 = '4th'
+    else:
+        per2 = 'Overtime'
 
     if rs == 1:
         r2 = 'made'
@@ -972,9 +994,8 @@ for i in range(len(df)):
                 mode='lines',
                 line=dict(width=8,color = color),
                 opacity =0.5,
-                name=f'Arc {i + 1}',
                 hoverinfo='text',
-                hovertemplate=f'{players} {r2} {round(dists)} ft {action} {subs} - {teams}'
+                hovertemplate=f'{players} {r2} {round(dists)} ft {action} {subs} - {teams}: {per2} Quarter'
             ))
 
 # Show the plot
