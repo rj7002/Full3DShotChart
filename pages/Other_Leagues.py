@@ -854,31 +854,19 @@ df = df[df['SHOT_DISTANCE'] >= 3]
 for index, row in df.iterrows():
     if Group:
         if row['TEAMTYPE'] == 'Home' and row['x'] >= 50:
-            x_values.append(100-row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
+            row['x] = 100-row['x']
         elif row['TEAMTYPE'] == 'Away' and row['x'] <= 50:
-            x_values.append(100-row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
-        else:
-            x_values.append(row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
+            row['x] = 100-row['x']
+    if row['x'] == 'Away':
+        x_values.append(row['x'])
+        # Append the value from column 'x' to the list
+        y_values.append(row['y'])
+        z_values.append(0)
     else:
-        if row['x'] == 'Away':
-            x_values.append(row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
-        else:
-            x_values.append(row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
+        x_values.append(row['x'])
+        # Append the value from column 'x' to the list
+        y_values.append(row['y'])
+        z_values.append(0)
 
 
 
