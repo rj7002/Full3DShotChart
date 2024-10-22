@@ -863,6 +863,11 @@ for index, row in df.iterrows():
             # Append the value from column 'x' to the list
             y_values.append(row['y'])
             z_values.append(0)
+        else:
+            x_values.append(row['x'])
+            # Append the value from column 'x' to the list
+            y_values.append(row['y'])
+            z_values.append(0)
     else:
         if row['x'] == 'Away':
             x_values.append(row['x'])
