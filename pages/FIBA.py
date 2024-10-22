@@ -704,19 +704,14 @@ for i in range(len(df)):
 # Show the plot
 col1, col2 = st.columns(2)
 with col1:
-    st.write(logo1)
-    # data_dict = ast.literal_eval(logo1)
 
     # # Extract the URL
-    # url = data_dict['url']
-    # st.image(url,250)
+    url = logo1['url']
+    st.image(url,250)
 with col2: 
-    st.write(logo2)
-    # data_dict = ast.literal_eval(logo2)
-
-    # # Extract the URL
-    # url = data_dict['url']
-    # st.image(url,250)
+ 
+    url = logo2['url']
+    st.image(url,250)
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig)
 # Show the plot
