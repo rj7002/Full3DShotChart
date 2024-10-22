@@ -57,12 +57,39 @@ try:
 
     # Combine both DataFrames
     combined_df = pd.concat([df_team_1, df_team_2], ignore_index=True)
+    teamdf = data2['tm']['1']
+    teamdf2 = data2['tm']['2']
+    filtered_data = {
+    'name': teamdf['name'],
+    'nameInternational': teamdf['nameInternational'],
+    'logo': teamdf['logo'],
+    'logoT': teamdf['logoT'],
+    'logoS': teamdf['logoS'],
+    'code': teamdf['code'],
+}
+    filtered_data2 = {
+    'name': teamdf2['name'],
+    'nameInternational': teamdf2['nameInternational'],
+    'logo': teamdf2['logo'],
+    'logoT': teamdf2['logoT'],
+    'logoS': teamdf2['logoS'],
+    'code': teamdf2['code'],
+}
+
+# Create the DataFrame
+    tdf = pd.DataFrame([filtered_data])  # Wrap in a list to create a DataFrame
+    tdf2 = pd.DataFrame([filtered_data2])
+    teamdffinal = pd.concat([tdf, tdf2], ignore_index=True)
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")
     
     # combined_df.to_csv('fiba.csv')
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
 
 df = combined_df
+teamdf = teamdffinal
+st.write(teamdffinal)
 df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
