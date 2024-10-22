@@ -253,7 +253,7 @@ if Shotdist == 1:
 if Shotdist:
     df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (df['SHOT_DISTANCE'] <= shotdistance_max)]
 if Player:
-    df = df[df['PLAYER'].isin(playersselect)]
+    df = df[df['player'].isin(playersselect)]
 #     game_shots_df = filter_player_actions(game_shots_df, player_names)
 #     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
 # if Shottype:
