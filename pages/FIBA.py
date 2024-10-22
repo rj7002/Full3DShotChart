@@ -51,12 +51,6 @@ try:
     df_team_1 = pd.DataFrame(data_team_1)
     df_team_2 = pd.DataFrame(data_team_2)
 
-    # Optionally, you can add a column to identify the team
-    df_team_1['team'] = 'Indios'
-    df_team_2['team'] = 'Rivales'
-
-    # Combine both DataFrames
-    combined_df = pd.concat([df_team_1, df_team_2], ignore_index=True)
     teamdf = data2['tm']['1']
     teamdf2 = data2['tm']['2']
     filtered_data = {
@@ -80,6 +74,14 @@ try:
     tdf = pd.DataFrame([filtered_data])  # Wrap in a list to create a DataFrame
     tdf2 = pd.DataFrame([filtered_data2])
     teamdffinal = pd.concat([tdf, tdf2], ignore_index=True)
+
+    # Optionally, you can add a column to identify the team
+    df_team_1['team'] = teamdffinal['name'].iloc[0]
+    df_team_2['team'] = teamdffinal['name'].iloc[1]
+
+    # Combine both DataFrames
+    combined_df = pd.concat([df_team_1, df_team_2], ignore_index=True)
+    
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
     
@@ -90,6 +92,7 @@ except requests.exceptions.RequestException as e:
 df = combined_df
 teamdf = teamdffinal
 st.write(teamdffinal)
+st.write(combined_df)
 df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
