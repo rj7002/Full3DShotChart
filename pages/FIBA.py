@@ -819,8 +819,8 @@ for index, row in playerbox.iterrows():
         'sPoints'
     ]
     
-    if any(pd.isna(row[stat]) for stat in critical_stats):
-        break  # Stop processing if any critical stat is NaN
+    # if any(pd.isna(row[stat]) for stat in critical_stats):
+    #     break  # Stop processing if any critical stat is NaN
     
     col_index = index % num_players_per_row  # Determine column index
     with st.expander('Player Stats'):
