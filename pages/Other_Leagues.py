@@ -853,12 +853,12 @@ df = df[df['r'] == 1]
 df = df[df['SHOT_DISTANCE'] >= 3]
 for index, row in df.iterrows():
     if Group:
-        if row['TEAMTYPE'] == 'Away' and row['x'] <= 50:
+        if row['TEAMTYPE'] == 'Home' and row['x'] <= 50:
             x_values.append(100-row['x'])
             # Append the value from column 'x' to the list
             y_values.append(row['y'])
             z_values.append(0)
-        elif row['TEAMTYPE'] == 'Home' and row['x'] >= 50:
+        elif row['TEAMTYPE'] == 'Away' and row['x'] >= 50:
             x_values.append(100-row['x'])
             # Append the value from column 'x' to the list
             y_values.append(row['y'])
