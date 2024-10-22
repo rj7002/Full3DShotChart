@@ -188,8 +188,9 @@ df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
 logo1 = teamdf['logoT'].iloc[0]
-team2 = teams[1]
-logo2 = teamdf['logoT'].iloc[1]
+if teams > 1:
+    team2 = teams[1]
+    logo2 = teamdf['logoT'].iloc[1]
 df['TEAMTYPE'] = np.where(df['team'] == team1, 'Home', 'Away')
 # if df['x'] >= 50:
 #     df['SHOT_DISTANCE'] = np.sqrt((df['x'] - 95)**2 + (df['COORD_Y'] - 25)**2)
