@@ -172,7 +172,7 @@ try:
 
 # Create the DataFrame
     bdf = pd.DataFrame([filtered_data])  # Wrap in a list to create a DataFrame
-    bf2 = pd.DataFrame([filtered_data2])
+    bdf2 = pd.DataFrame([filtered_data2])
     boxscoret = pd.concat([bdf, bdf2], ignore_index=True)
     
 except requests.exceptions.RequestException as e:
