@@ -566,8 +566,8 @@ if games:
         df = df[df['PLAYER'].isin(selectplayers)]
     #     game_shots_df = filter_player_actions(game_shots_df, player_names)
     #     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
-    # if Shottype:
-    #     game_shots_df = game_shots_df[game_shots_df['type.text'].isin(shottype)]
+    if Shottype:
+        df = df[df['subType'].isin(shottype)]
     if Points:
         df = df[df['POINTS'] == int(points)]
     if Time:
