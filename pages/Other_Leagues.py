@@ -216,7 +216,7 @@ if Make == 1:
 Player = st.sidebar.toggle('Players')
 if Player == 1:
     uniqueplayers = df['player'].unique()
-    playersselect = st.multiselect('Select players',uniqueplayers)
+    playersselect = st.sidebar.multiselect('Select players',uniqueplayers)
     # import sportsdataverse.nba.nba_game_rosters as nba_rosters
     # roster_data = nba_rosters.espn_nba_game_rosters(game_id=id, return_as_pandas=True)
     # roster_data = roster_data[roster_data['did_not_play'] != True]
@@ -239,14 +239,31 @@ uniqueshots = df['subType'].unique()
 if Shottype == 1:
     shottype = st.sidebar.multiselect('',uniqueshots)
 Points = st.sidebar.toggle('Points')
+upoints = df['actionType'].unique()
 if Points == 1:
-    points = st.sidebar.selectbox('',['2','3'])
+    points = st.sidebar.selectbox('',upoints)
 # Time = st.sidebar.toggle('Time')
 # if Time == 1:
 #     timemin, timemax = st.sidebar.slider("Time Remaining (Minutes)", 0, 15, (0, 15))
 Shotdist = st.sidebar.toggle('Shot Distance')
 if Shotdist == 1:
     shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
+
+
+if Shotdist:
+    df = df[(df['SHOT_DISTANCE'] >= shotdistance_min) & (df['SHOT_DISTANCE'] <= shotdistance_max)]
+if Player:
+    df = df[df['PLAYER'].isin(playersselect)]
+#     game_shots_df = filter_player_actions(game_shots_df, player_names)
+#     # game_shots_df = game_shots_df[game_shots_df['text'].str.contains('|'.join(player_names), case=False, na=False)]
+# if Shottype:
+#     game_shots_df = game_shots_df[game_shots_df['type.text'].isin(shottype)]
+if Points:
+    df = df[df['actionType'] == upoints]
+# if Time:
+#     df = df[(df['TimeMinutes'] >= timemin) & (df['TimeMinutes'] <= timemax)]
+if Make:
+    df = df[df['r'] == rmakemiss]
 
 import pandas as pd
 import numpy as np
