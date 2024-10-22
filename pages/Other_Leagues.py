@@ -741,7 +741,7 @@ for x, y, z, symbol,size,color,action,sub,player,r,team,dist in zip(x_coords, y_
             opacity=0.8
         ),
         hoverinfo='text',
-        text=f'{player} {r2} {dist} ft {action} {sub} - {team}'
+        text=f'{player} {r2} {round(dist)} ft {action} {sub} - {team}'
     ))
 
 
@@ -884,7 +884,7 @@ for i in range(len(df)):
                 opacity =0.5,
                 name=f'Arc {i + 1}',
                 hoverinfo='text',
-                hovertemplate=f'{players} {r2} {dists} ft {action} {subs} - {teams}'
+                hovertemplate=f'{players} {r2} {round(dists)} ft {action} {subs} - {teams}'
             ))
 
 # Show the plot
