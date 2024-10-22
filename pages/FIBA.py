@@ -298,23 +298,23 @@ def create_pitch_3d():
         hoverinfo='none'
     ))
     fig.update_layout(
-        title='3D Scatter Plot of Points',
+        title='',
         scene=dict(
             xaxis=dict(
                 range=[0, 100],
-                title='X Axis',
+                title='',
                 tickvals=list(range(0, 93, 1)),  # Tick marks at intervals of 1
                 ticktext=[str(i) for i in range(0, 93, 1)]  # Corresponding labels
             ),
             yaxis=dict(
                 range=[0, 50],
-                title='Y Axis',
+                title='',
                 tickvals=list(range(0, 50, 1)),  # Tick marks at intervals of 1
                 ticktext=[str(i) for i in range(0, 50, 1)]  # Corresponding labels
             ),
             zaxis=dict(
                 # range=[0, 10],
-                title='Z Axis',
+                title='',
                 tickvals=list(range(0, 11, 1)),  # Tick marks at intervals of 1
                 ticktext=[str(i) for i in range(0, 11, 1)]  # Corresponding labels
             )
@@ -711,5 +711,5 @@ with col2:
     url = logo2['url']
     st.image(url,width=250)
 st.subheader(f'{team1.title()} vs {team2.title()}')
-st.plotly_chart(fig)
+st.plotly_chart(fig,use_container_width=True)
 # Show the plot
