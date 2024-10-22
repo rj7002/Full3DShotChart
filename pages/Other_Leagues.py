@@ -690,6 +690,14 @@ def create_pitch_3d():
         line=dict(color='black', width=4),
         hoverinfo='none'
     ))
+    hoop_loc_x = 6
+    hoop_loc_y = 25
+    hoop_loc_z = 10
+    hoop_loc_x2 = 94
+    hoop_loc_y2 = 25
+    hoop_loc_z2 = 10
+    
+    # Parameters for the net
     num_net_lines = 20
     net_length = 0.75  # Net length in cm
     initial_radius = 0.75  # Rim radius in cm
@@ -700,15 +708,41 @@ def create_pitch_3d():
         angle = (i * 2 * np.pi) / num_net_lines
         for j in np.linspace(0, net_length, num=10):
             current_radius = initial_radius * (1 - (j / net_length) * 0.5)
-            x = current_radius * np.cos(angle)
-            y = current_radius * np.sin(angle)
-            z = -j
+            x = hoop_loc_x + current_radius * np.cos(angle)
+            y = hoop_loc_y + current_radius * np.sin(angle)
+            z = hoop_loc_z - j  # Move downwards for net length
             hoop_net_coordinates.append((x, y, z))
     
     # Unzip the coordinates
     x_net, y_net, z_net = zip(*hoop_net_coordinates)
     
-    # Create the figure    
+    
+    # Add the net lines to the figure
+    for i in range(num_net_lines):
+        fig.add_trace(go.Scatter3d(
+            x=x_net[i*10:(i+1)*10],
+            y=y_net[i*10:(i+1)*10],
+            z=z_net[i*10:(i+1)*10],
+            mode='lines',
+            line=dict(color='white', width=2),
+            name='Net Line ' + str(i)
+        ))
+    # Generate net coordinates
+    hoop_net_coordinates = []
+    for i in range(num_net_lines):
+        angle = (i * 2 * np.pi) / num_net_lines
+        for j in np.linspace(0, net_length, num=10):
+            current_radius = initial_radius * (1 - (j / net_length) * 0.5)
+            x = hoop_loc_x2 + current_radius * np.cos(angle)
+            y = hoop_loc_y2 + current_radius * np.sin(angle)
+            z = hoop_loc_z2 - j  # Move downwards for net length
+            hoop_net_coordinates.append((x, y, z))
+    
+    # Unzip the coordinates
+    x_net, y_net, z_net = zip(*hoop_net_coordinates)
+    
+    # Create the figure
+    
     # Add the net lines to the figure
     for i in range(num_net_lines):
         fig.add_trace(go.Scatter3d(
