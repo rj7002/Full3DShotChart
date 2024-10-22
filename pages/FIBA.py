@@ -826,7 +826,7 @@ for index, row in df.iterrows():
         st.header(f"{first_name} {family_name}")
 
         # Check if the image URL exists or is valid
-        if pd.notnull(row['photoT']) and row['photoT'].startswith("http"):
+        if pd.notnull(row.get('photoT')) and row['photoT'].startswith("http"):
             st.image(row['photoT'], width=100)
         else:
             st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EnGw6bC6e96sl9Wx3B35YJajLfSN6fio4Q&s", width=100)  # Use a placeholder image
