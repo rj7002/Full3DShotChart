@@ -705,6 +705,7 @@ for i in range(len(df)):
 col1, col2 = st.columns(2)
 with col1:
     url = re.search(r"url': '(.*?)'", logo1).group(1)
+    st.write(url)
     st.image(url,250)
 with col2: 
     url = re.search(r"url': '(.*?)'", logo2).group(1)
