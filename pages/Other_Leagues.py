@@ -712,7 +712,8 @@ r_values = df['r'].values  # Get the 'r' column values
 teamvalues = df['team'].values
 teams = df['team'].unique()
 team1 = teams[0]
-team2 = teams[1]
+if len(teams) > 1
+    team2 = teams[1]
 marker_symbols = ['x' if r == 0 else 'circle' for r in r_values]
 sizes = [3 if r == 0 else 6 for r in r_values]
 colors = ['blue' if t == team1 else 'red' for t in teamvalues]
