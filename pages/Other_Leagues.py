@@ -249,7 +249,7 @@ if Points == 1:
 Shotdist = st.sidebar.toggle('Shot Distance')
 if Shotdist == 1:
     shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
-Group = st.sidebar.checkbox('Group by team')
+# Group = st.sidebar.checkbox('Group by team')
 
 
 if Shotdist:
@@ -750,28 +750,28 @@ z_values = []
 df = df[df['r'] == 1]
 df = df[df['SHOT_DISTANCE'] >= 3]
 for index, row in df.iterrows():
-    if Group:
-        if row['x'] == 'Away' and row['x'] <= 50:
-            x_values.append(100-row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
-        elif row['x'] == 'Home' and row['x'] >= 50:
-            x_values.append(100-row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
+    # if Group:
+    #     if row['x'] == 'Away' and row['x'] <= 50:
+    #         x_values.append(100-row['x'])
+    #         # Append the value from column 'x' to the list
+    #         y_values.append(row['y'])
+    #         z_values.append(0)
+    #     elif row['x'] == 'Home' and row['x'] >= 50:
+    #         x_values.append(100-row['x'])
+    #         # Append the value from column 'x' to the list
+    #         y_values.append(row['y'])
+    #         z_values.append(0)
+    # else:
+    if row['x'] == 'Away':
+        x_values.append(row['x'])
+        # Append the value from column 'x' to the list
+        y_values.append(row['y'])
+        z_values.append(0)
     else:
-        if row['x'] == 'Away':
-            x_values.append(row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
-        else:
-            x_values.append(row['x'])
-            # Append the value from column 'x' to the list
-            y_values.append(row['y'])
-            z_values.append(0)
+        x_values.append(row['x'])
+        # Append the value from column 'x' to the list
+        y_values.append(row['y'])
+        z_values.append(0)
 
 
 
