@@ -652,10 +652,16 @@ team2 = teams[1]
 marker_symbols = ['x' if r == 0 else 'circle' for r in r_values]
 sizes = [3 if r == 0 else 6 for r in r_values]
 colors = ['blue' if t == team1 else 'red' for t in teamvalues]
-hovertexts = df['actionType'].values
+actions = df['actionType'].values
+subs = df['subType'].values
+players = df['player'].values
+rs = df['r'].values
 
-
-for x, y, z, symbol,size,color,hovertext in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,hovertexts):
+for x, y, z, symbol,size,color,action,sub,player,r in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs):
+    if r == 1:
+        r2 = 'made'
+    else:
+        r2 = 'missed'
     fig.add_trace(go.Scatter3d(
         x=[x],
         y=[y],
@@ -668,7 +674,7 @@ for x, y, z, symbol,size,color,hovertext in zip(x_coords, y_coords, z_coords, ma
             opacity=0.8
         ),
         hoverinfo='text',
-        text=hovertext
+        text=f'{player} {r2} {sub} {action}'
     ))
 
 
@@ -780,7 +786,14 @@ for i in range(len(df)):
         color = 'red'
     else:
         color = 'blue'
-    hovertext = df['actionType'].iloc[i]
+    action = df['actionType'].iloc[i]
+    subs = df['subType'].iloc[i]
+    players = df['player'].iloc[i]
+    rs = df['r'].iloc[i]
+    if rs == 1:
+        r2 = 'made'
+    else:
+        r2 = 'missed'
 
     
     fig.add_trace(go.Scatter3d(
@@ -790,7 +803,7 @@ for i in range(len(df)):
                 opacity =0.5,
                 name=f'Arc {i + 1}',
                 hoverinfo='text',
-                hovertemplate=hovertext
+                hovertemplate=f'{players} {r2} {subs} {action}'
             ))
 
 # Show the plot
