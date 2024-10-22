@@ -656,8 +656,8 @@ actions = df['actionType'].values
 subs = df['subType'].values
 players = df['player'].values
 rs = df['r'].values
-
-for x, y, z, symbol,size,color,action,sub,player,r in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs):
+teams = df['team'].values
+for x, y, z, symbol,size,color,action,sub,player,r,team in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs,teams):
     if r == 1:
         r2 = 'made'
     else:
@@ -674,7 +674,7 @@ for x, y, z, symbol,size,color,action,sub,player,r in zip(x_coords, y_coords, z_
             opacity=0.8
         ),
         hoverinfo='text',
-        text=f'{player} {r2} {sub} {action}'
+        text=f'{player} {r2} {action} {sub} - {team}'
     ))
 
 
@@ -790,6 +790,8 @@ for i in range(len(df)):
     subs = df['subType'].iloc[i]
     players = df['player'].iloc[i]
     rs = df['r'].iloc[i]
+    teams = df['team'].iloc[i]
+
     if rs == 1:
         r2 = 'made'
     else:
@@ -803,7 +805,7 @@ for i in range(len(df)):
                 opacity =0.5,
                 name=f'Arc {i + 1}',
                 hoverinfo='text',
-                hovertemplate=f'{players} {r2} {subs} {action}'
+                hovertemplate=f'{players} {r2} {action} {subs} - {teams}'
             ))
 
 # Show the plot
