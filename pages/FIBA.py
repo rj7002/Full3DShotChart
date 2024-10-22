@@ -817,6 +817,7 @@ st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
 num_players_per_row  = 5
+cols = st.columns(num_players_per_row)  # Initialize columns before the loop
 for index, row in df.iterrows():
     col_index = index % num_players_per_row  # Determine column index
     with cols[col_index]:
