@@ -699,7 +699,7 @@ def create_pitch_3d():
     
     # Parameters for the net
     num_net_lines = 20
-    net_length = 0.75  # Net length in cm
+    net_length = 1.25  # Net length in cm
     initial_radius = 0.75  # Rim radius in cm
     
     # Generate net coordinates
