@@ -21,7 +21,7 @@ import numpy as np
 import ast
 import streamlit as st
 
-st.subheader('Enter a FIBA game id to view the 3D shot chart')
+st.subheader('Enter a game id to view the 3D shot chart. Leagues such as the NBL, BAL, TBL along with some FIBA games are available to view.')
 id = st.number_input('',value=1816801)
 gameid = id
 url = f"https://fibalivestats.dcd.shared.geniussports.com/data/{gameid}/data.json"
