@@ -174,6 +174,14 @@ try:
     bdf = pd.DataFrame([filtered_data])  # Wrap in a list to create a DataFrame
     bdf2 = pd.DataFrame([filtered_data2])
     boxscoret = pd.concat([bdf, bdf2], ignore_index=True)
+
+    playerdf = data2['tm']['1']['pl']
+    playerdf2 = data2['tm']['2']
+   
+    pbdf = pd.DataFrame.from_dict(playerdf, orient='index')
+    pbdf2 = pd.DataFrame.from_dict(playerdf2, orient='index')
+    playerbox = pd.concat([pbdf, pbdf2], ignore_index=True)
+   
     
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
@@ -808,4 +816,19 @@ with col2:
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
+for index, row in playerbox.iterrows():
+    st.header(f"{row['firstName']} {row['familyName']}")
+    st.image(row['photoT'], width=150)
+    st.write("### Stats")
+    st.write(f"- Minutes: {row['sMinutes']}")
+    st.write(f"- Field Goals Made: {row['sFieldGoalsMade']}")
+    st.write(f"- Field Goals Attempted: {row['sFieldGoalsAttempted']}")
+    st.write(f"- Field Goals Percentage: {row['sFieldGoalsPercentage']}%")
+    st.write(f"- Three Pointers Made: {row['sThreePointersMade']}")
+    st.write(f"- Three Pointers Attempted: {row['sThreePointersAttempted']}")
+    st.write(f"- Free Throws Made: {row['sFreeThrowsMade']}")
+    st.write(f"- Rebounds: {row['sReboundsTotal']}")
+    st.write(f"- Assists: {row['sAssists']}")
+    st.write(f"- Points: {row['sPoints']}")
+    st.write("---")
 # Show the plot
