@@ -96,7 +96,9 @@ st.write(combined_df)
 df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
+logo1 = teamdf['logo'].iloc[0]
 team2 = teams[1]
+logo2 = teamdf['logo'].iloc[0]
 df['TEAMTYPE'] = np.where(df['team'] == team1, 'Home', 'Away')
 # if df['x'] >= 50:
 #     df['SHOT_DISTANCE'] = np.sqrt((df['x'] - 95)**2 + (df['COORD_Y'] - 25)**2)
@@ -700,6 +702,13 @@ for i in range(len(df)):
             ))
 
 # Show the plot
+col1, col2 = st.columns(2)
+with col1:
+    url = re.search(r"url': '(.*?)'", logo1).group(1)
+    st.image(url,250)
+with col2: 
+    url = re.search(r"url': '(.*?)'", logo2).group(1)
+    st.image(url,250)
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig)
 # Show the plot
