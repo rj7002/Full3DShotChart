@@ -188,7 +188,7 @@ df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
 logo1 = teamdf['logoT'].iloc[0]
-if teams > 1:
+if len(teams) > 1:
     team2 = teams[1]
     logo2 = teamdf['logoT'].iloc[1]
 df['TEAMTYPE'] = np.where(df['team'] == team1, 'Home', 'Away')
