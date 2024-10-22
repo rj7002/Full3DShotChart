@@ -723,7 +723,8 @@ subs = df['subType'].values
 players = df['player'].values
 rs = df['r'].values
 teams = df['team'].values
-for x, y, z, symbol,size,color,action,sub,player,r,team in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs,teams):
+dists = df['SHOT_DISTANCE'].values
+for x, y, z, symbol,size,color,action,sub,player,r,team,dist in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,actions,subs,players,rs,teams,dists):
     if r == 1:
         r2 = 'made'
     else:
@@ -740,7 +741,7 @@ for x, y, z, symbol,size,color,action,sub,player,r,team in zip(x_coords, y_coord
             opacity=0.8
         ),
         hoverinfo='text',
-        text=f'{player} {r2} {action} {sub} - {team}'
+        text=f'{player} {r2} {dist} ft {action} {sub} - {team}'
     ))
 
 
@@ -868,6 +869,7 @@ for i in range(len(df)):
     players = df['player'].iloc[i]
     rs = df['r'].iloc[i]
     teams = df['team'].iloc[i]
+    dists = df['SHOT_DISTANCE'].iloc[i]
 
     if rs == 1:
         r2 = 'made'
@@ -882,7 +884,7 @@ for i in range(len(df)):
                 opacity =0.5,
                 name=f'Arc {i + 1}',
                 hoverinfo='text',
-                hovertemplate=f'{players} {r2} {action} {subs} - {teams}'
+                hovertemplate=f'{players} {r2} {dists} ft {action} {subs} - {teams}'
             ))
 
 # Show the plot
