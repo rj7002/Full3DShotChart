@@ -700,6 +700,6 @@ for i in range(len(df)):
             ))
 
 # Show the plot
-st.subheader(f'{team1} vs {team2}')
+st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig)
 # Show the plot
