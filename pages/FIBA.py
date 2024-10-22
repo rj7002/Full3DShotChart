@@ -821,7 +821,9 @@ cols = st.columns(num_players_per_row)  # Initialize columns before the loop
 for index, row in df.iterrows():
     col_index = index % num_players_per_row  # Determine column index
     with cols[col_index]:
-        st.header(f"{row['firstName']} {row['familyName']}")
+        first_name = row.get('firstName', 'Unknown')
+        family_name = row.get('familyName', 'Unknown')
+        st.header(f"{first_name} {family_name}")
 
         # Check if the image URL exists or is valid
         if pd.notnull(row['photoT']) and row['photoT'].startswith("http"):
