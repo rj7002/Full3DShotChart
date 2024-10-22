@@ -182,8 +182,8 @@ except requests.exceptions.RequestException as e:
 
 df = combined_df
 teamdf = teamdffinal
-# st.write(teamdffinal)
-# st.write(combined_df)
+st.write(teamdffinal)
+st.write(combined_df)
 df['y'] = 0.50 *df['y']
 teams = df['team'].unique()
 team1 = teams[0]
@@ -653,6 +653,7 @@ marker_symbols = ['x' if r == 0 else 'circle' for r in r_values]
 sizes = [3 if r == 0 else 6 for r in r_values]
 colors = ['blue' if t == team1 else 'red' for t in teamvalues]
 hovertexts = df['actionType'].values
+
 
 for x, y, z, symbol,size,color,hovertext in zip(x_coords, y_coords, z_coords, marker_symbols, sizes,colors,hovertexts):
     fig.add_trace(go.Scatter3d(
