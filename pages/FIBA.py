@@ -816,27 +816,31 @@ with col2:
 st.subheader(f'{team1.title()} vs {team2.title()}')
 st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
-num_players_per_row = 5
-cols = st.columns(num_players_per_row)
-
 for index, row in df.iterrows():
     col_index = index % num_players_per_row  # Determine column index
     with cols[col_index]:
         st.header(f"{row['firstName']} {row['familyName']}")
-        st.image(row['photoT'], width=150)
+
+        # Check if the image URL exists or is valid
+        if pd.notnull(row['photoT']) and row['photoT'].startswith("http"):
+            st.image(row['photoT'], width=100)
+        else:
+            st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EnGw6bC6e96sl9Wx3B35YJajLfSN6fio4Q&s", width=100)  # Use a placeholder image
+
         st.write("### Stats")
-        st.write(f"- Minutes: {row['sMinutes']}")
-        st.write(f"- Field Goals Made: {row['sFieldGoalsMade']}")
-        st.write(f"- Field Goals Attempted: {row['sFieldGoalsAttempted']}")
-        st.write(f"- Field Goals Percentage: {row['sFieldGoalsPercentage']}%")
-        st.write(f"- Three Pointers Made: {row['sThreePointersMade']}")
-        st.write(f"- Three Pointers Attempted: {row['sThreePointersAttempted']}")
-        st.write(f"- Free Throws Made: {row['sFreeThrowsMade']}")
-        st.write(f"- Rebounds: {row['sReboundsTotal']}")
-        st.write(f"- Assists: {row['sAssists']}")
-        st.write(f"- Points: {row['sPoints']}")
+        st.write(f"- Minutes: {row.get('sMinutes', 'N/A')}")
+        st.write(f"- Field Goals Made: {row.get('sFieldGoalsMade', 'N/A')}")
+        st.write(f"- Field Goals Attempted: {row.get('sFieldGoalsAttempted', 'N/A')}")
+        st.write(f"- Field Goals Percentage: {row.get('sFieldGoalsPercentage', 'N/A')}%")
+        st.write(f"- Three Pointers Made: {row.get('sThreePointersMade', 'N/A')}")
+        st.write(f"- Three Pointers Attempted: {row.get('sThreePointersAttempted', 'N/A')}")
+        st.write(f"- Free Throws Made: {row.get('sFreeThrowsMade', 'N/A')}")
+        st.write(f"- Rebounds: {row.get('sReboundsTotal', 'N/A')}")
+        st.write(f"- Assists: {row.get('sAssists', 'N/A')}")
+        st.write(f"- Points: {row.get('sPoints', 'N/A')}")
         st.write("---")
 
     if col_index == num_players_per_row - 1:  # After filling one row
         cols = st.columns(num_players_per_row)  # Reset columns for the next row
+
 # Show the plot
