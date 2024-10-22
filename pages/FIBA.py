@@ -818,26 +818,27 @@ st.plotly_chart(fig,use_container_width=True)
 st.write(boxscoret)
 num_players_per_row = 5
 cols = st.columns(num_players_per_row)  # Initialize columns before the loop
-with st.expander('Player Stats'):
-    for index, row in playerbox.iterrows():
-        # Check for NaN values in the critical stats
-        critical_stats = [
-            'sMinutes', 
-            'sFieldGoalsMade', 
-            'sFieldGoalsAttempted', 
-            'sFieldGoalsPercentage', 
-            'sThreePointersMade', 
-            'sThreePointersAttempted', 
-            'sFreeThrowsMade', 
-            'sReboundsTotal', 
-            'sAssists', 
-            'sPoints'
-        ]
-        
-        if any(pd.isna(row[stat]) for stat in critical_stats):
-            break  # Stop processing if any critical stat is NaN
-        
-        col_index = index % num_players_per_row  # Determine column index
+for index, row in playerbox.iterrows():
+    # Check for NaN values in the critical stats
+    critical_stats = [
+        'sMinutes', 
+        'sFieldGoalsMade', 
+        'sFieldGoalsAttempted', 
+        'sFieldGoalsPercentage', 
+        'sThreePointersMade', 
+        'sThreePointersAttempted', 
+        'sFreeThrowsMade', 
+        'sReboundsTotal', 
+        'sAssists', 
+        'sPoints'
+    ]
+    
+    if any(pd.isna(row[stat]) for stat in critical_stats):
+        break  # Stop processing if any critical stat is NaN
+    
+    col_index = index % num_players_per_row  # Determine column index
+    with st.expander('Player Stats'):
+    
         with cols[col_index]:
             first_name = row.get('firstName', 'Unknown')
             family_name = row.get('familyName', 'Unknown')
