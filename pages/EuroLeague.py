@@ -478,14 +478,14 @@ if games:
     #     # player_names = roster_data['full_name'].tolist()
     #     players = st.sidebar.multiselect('',names)
     #     player_names = []
-    #     for player_info in players:
-    #         # Split each player_info string by ' - ' to separate player name and team
-    #         player_name = player_info.split(' - ')[0]
-    #         player_names.append(player_name)
+        # for player_info in players:
+        #     # Split each player_info string by ' - ' to separate player name and team
+        #     player_name = player_info.split(' - ')[0]
+        #     player_names.append(player_name)
 
-    # Shottype = st.sidebar.toggle('Shot Type')
-    # if Shottype == 1:
-    #     shottype = st.sidebar.multiselect('',uniqueshots)
+    Shottype = st.sidebar.toggle('Shot Type')
+    if Shottype == 1:
+        shottype = st.sidebar.multiselect('',uniqueshots)
     Points = st.sidebar.toggle('Points')
     if Points == 1:
         points = st.sidebar.selectbox('',['2','3'])
