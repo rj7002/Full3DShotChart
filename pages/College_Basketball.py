@@ -192,7 +192,6 @@ if type == 'MBB':
                     return 'away'
         
             # Apply the function to create a new column 'team'
-            st.write(df)
             df['team'] = df.apply(label_team, axis=1)
             df['home_color'] = '0022B4'
             df['away_color'] = '99bfe5'
@@ -244,6 +243,7 @@ if type == 'MBB':
             Time = st.sidebar.toggle('Time')
             if Time == 1:
                 timemin, timemax = st.sidebar.slider("Time Remaining (Minutes)", 0, 15, (0, 15))
+            Player = st.sidebar.toggle('Players')
             # Shotdist = st.sidebar.toggle('Shot Distance')
             # if Shotdist == 1:
             #     shotdistance_min, shotdistance_max = st.sidebar.slider("Shot Distance", 0, 94, (0, 94))
@@ -827,6 +827,11 @@ if type == 'MBB':
                     
                     return pd.DataFrame(flat_list)
                 playerdf = flatten_player_data(players)
+                uniqueplayers = playerdf['player_name'].unique()
+                if Player:
+                    players = st.multiselect('Filter by players', uniqueplayers)
+                    filtered_shot_df = filtered_shot_df[filtered_shot_df['text'].isin(players)]
+                    game_shots_df = game_shots_df[game_shots_df['text'].isin(players)]
                 st.subheader('Team Boxscore')
                 team_df = team_df.drop(columns=['team_name','team_location','team_abbreviation','team_id'])
                 team_df = team_df[['team_displayName'] + [col for col in team_df.columns if col != 'team_displayName']]
