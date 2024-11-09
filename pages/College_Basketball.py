@@ -831,8 +831,8 @@ if type == 'MBB':
                 if Player:
                     players = st.multiselect('Filter by players', uniqueplayers)
                     if play:
-                        filtered_shot_df = filtered_shot_df[filtered_shot_df['text'].isin(players)]
-                    game_shots_df = game_shots_df[game_shots_df['text'].isin(players)]
+                        filtered_shot_df = filter_player_actions(filtered_shot_df, players)
+                    game_shots_df = filter_player_actions(game_shots_df, players)
                 st.subheader('Team Boxscore')
                 team_df = team_df.drop(columns=['team_name','team_location','team_abbreviation','team_id'])
                 team_df = team_df[['team_displayName'] + [col for col in team_df.columns if col != 'team_displayName']]
