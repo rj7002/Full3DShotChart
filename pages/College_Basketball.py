@@ -192,6 +192,7 @@ if type == 'MBB':
                     return 'away'
         
             # Apply the function to create a new column 'team'
+            st.write(df)
             df['team'] = df.apply(label_team, axis=1)
             df['home_color'] = '0022B4'
             df['away_color'] = '99bfe5'
