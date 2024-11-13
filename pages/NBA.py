@@ -1434,7 +1434,7 @@ if selected_season:
 
                                 st.write(description)
 
-                                st.video(video)
+                                st.video(video,autoplay=True)
                             else:
                                 st.error('No video highlight available')
                         
@@ -1869,7 +1869,7 @@ if selected_season:
         #                 with st.expander('Videos'):
         #                     for index, row in links_df.iterrows():
         #                         link = row['source.HD.href']
-        #                         st.video(link)
+        #                         st.video(link,autoplay=True)
                         
         #                 # Print the new DataFrame to verify                        
         #                 # Optionally, save the links DataFrame to a CSV file
