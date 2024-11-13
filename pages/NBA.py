@@ -1434,7 +1434,7 @@ if selected_season:
 
                                 st.write(description)
 
-                                st.video(video,autoplay=True)
+                                st.video(video)
                             else:
                                 st.error('No video highlight available')
                         
