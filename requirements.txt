@@ -2,7 +2,7 @@ requests
 streamlit==1.31.1
 plotly==5.19.0
 pandas
-sportsdataverse==0.6.0
+sportsdataverse
 xgboost==1.7.6
 datetime
 tqdm
